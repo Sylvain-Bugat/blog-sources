@@ -1,0 +1,34 @@
+baseurl = "http://sylvain-bugat.github.io/"
+languageCode = "en-us"
+title = "Batch cavern"
+MetaDataFormat = "toml"
+theme="hyde-x"
+paginate = 10
+
+[author]
+	name = "Sylvain Bugat"
+
+[permalinks]
+	post = "/blog/:year/:month/:day/:title/"
+	code = "/code/:year/:month/:day/:title/"
+
+[taxonomies]
+	category = "categories"
+
+[params]
+	defaultDescription = "We require more batchs!"
+	defaultKeywords = "we,require,more,batchs"
+
+	theme = "theme-base-0d layout-reverse"
+
+	highlight = "sunburst"
+
+	# Displays under the author name in the sidebar, keep it short.
+	# You can use markdown here.
+	tagline = "We require more batchs!"
+	#gravatarHash = "MD5 hash of your Gravatar email address"
+
+	github = "https://github.com/Sylvain-Bugat"
+	linkedin = "https://www.linkedin.com/in/sylvainbugat"
+	googleplus = ""
+	twitter = ""
