@@ -14,18 +14,18 @@ This post is the first of a article series about the 8/N queens puzzle solving.
 
 The [8 queens on a chessboard](http://en.wikipedia.org/wiki/Eight_queens_puzzle) is a classic puzzle which consists of placing 8 queens on a chessboard with only one queen on each row, column and diagonal, you can try it with this chessboard (errors are not visible yet):
 
-<div id="board2" style="width: 400px"></div>
-<input type="button" id="clearBtn" value="Clear" />
+<div id="board" style="width: 400px"></div>
+<input type="button" id="clearButton" value="Clear" />
 
 <script>
 
-var board2 = new ChessBoard('board2', {
+var board = new ChessBoard('board', {
 	draggable: true,
 	dropOffBoard: 'trash',
-	sparePieces: true
+	sparePieces: true,
+	showNotation: false
 });
-$('#startBtn').on('click', board2.start);
-$('#clearBtn').on('click', board2.clear);
+$('#clearButton').on('click', board.clear);
 
 </script>
 
