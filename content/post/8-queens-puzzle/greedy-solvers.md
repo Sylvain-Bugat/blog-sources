@@ -9,3 +9,25 @@ draft = "true"
 
 +++
 
+<div id="board" style="width: 400px"></div>
+
+<script>
+
+var position = {
+  a8: 'wQ',
+  b8: 'wQ',
+  c8: 'wQ',
+  d8: 'wQ',
+  e8: 'wQ',
+  f8: 'wQ',
+  g8: 'wQ',
+  h8: 'wQ'
+};
+var board2 = new ChessBoard('board', {
+	position: position,
+	showNotation: false
+});
+
+</script>
+
+
