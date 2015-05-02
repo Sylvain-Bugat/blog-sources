@@ -14,6 +14,7 @@ paginate = 10
 
 [taxonomies]
 	category = "categories"
+	series = "series"
 
 [params]
 	defaultDescription = "We require more batchs!"
