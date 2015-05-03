@@ -2,16 +2,18 @@
 categories = ["code","8 queens puzzle"]
 series = ["8 queens puzzle"]
 date = "2015-05-02T12:38:15+02:00"
-description = "N queens puzzle greedy solving part 1"
+description = "N queens puzzle brute-force solver part 1"
 keywords = ["8 queens puzzle","8 queens","algorithm","N queens puzzle","N queens","puzzle","chessboard","chess","blog"]
-title = "8 queens puzzle greedy solving part 1"
+title = "8 queens puzzle brute-force solver part 1"
 draft = "true"
 
 +++
 
 ## Explanations
 
-Greedy algorithms also known as brute force algorithms consist of testing all possibilities with 8 queens on a chessboard like that for the first one:
+### Greedy
+
+Brute-force algorithms are also known as exhaustive algorithms, they consist of testing all possibilities with 8 (or more) queens on a chessboard like that for the first one:
 
 <div id="board" style="width: 400px"></div>
 
@@ -57,11 +59,11 @@ var board2 = new ChessBoard('board2', {
 
 </script>
 
-It is clear that this algorithm is uneficient because the second placed queen is invalid and the next queens positionning and testing are useless. None solution can be found with 2 queens on the 2 first positions for example.
+It is clear that this algorithm is uneficient because the second placed queen is already invalid and next positionned and tested queens are just a waste of time. No solution can be found with 2 queens on the 2 first positions for example.
 
-## Uber-greediness
+### Uber-brute-force
 
-It's possible to make an algorithm **more uneficient** with no number of queens limit like this tested chessboard as the first possible "solution":
+It's possible to make an algorithm **more uneficient** with no limit of simultaneous placed queens like this chessboard as the first tested "solution":
 
 <div id="board3" style="width: 400px"></div>
 
@@ -84,6 +86,9 @@ var board3 = new ChessBoard('board3', {
 
 </script>
 
-This tested chessboard is just insane only a stupid program can test this as a solution.
+This tested chessboard is just insane only a brute-force program can test this as a solution. But this algorithm is a floor value to test speed-ups and optimisations.
+
+## Implementations
+
 
 

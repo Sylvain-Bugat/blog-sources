@@ -15,7 +15,7 @@ This post is the first of a article series about the 8/N queens puzzle solving.
 The [8 queens on a chessboard](http://en.wikipedia.org/wiki/Eight_queens_puzzle) is a classic puzzle which consists of placing 8 queens on a chessboard with only one queen on each row, column and diagonal, you can try it with this chessboard (errors are not visible yet):
 
 <div id="board" style="width: 400px"></div>
-<input type="button" id="clearButton" value="Clear" />
+<input type="button" id="clearButton" value="Clear chessboard" />
 
 <script>
 
@@ -34,7 +34,9 @@ Queen image is from [Pixabay](http://pixabay.com/en/chess-queen-meeple-white-gam
 
 ### Extention to N queens
 
-This puzzle can be extended to N queens on a N x N chessboard and a higher value of N
+This puzzle can be extended to N queens on a N x N chessboard and a higher value of N increase needed operations to find all solutions.
+
+All implemented algorithm in this series of posts can count solutions on a chessboard of size N.
 
 ### Solutions of the puzzle
 
@@ -71,8 +73,26 @@ Known number of solutions for N from 1 to 26 are:
 
 Source: sequence [A000170](http://oeis.org/A000170) on [OEIS](http://oeis.org/).
 
-### Resolve the puzzle
+On a classic chessboard there is 92 distinct solutions.
+
+## Resolve the puzzle
 
 This puzzle can be solved with various algorithms. It is quite easy to resolve when N is low and it is a good pratice for testing various algorithms and optimisations.
 
-Next posts will explain greedy and back-tracking algorithms and possible optimisations with some benchmarks to compare. All shown code and algorithms are on this [GitHub project](https://github.com/Sylvain-Bugat/N-queens-puzzle-solvers) and are under the [MIT license](https://github.com/Sylvain-Bugat/N-queens-puzzle-solvers/blob/master/LICENSE).
+Next posts of this series will explain brute-force and back-tracking algorithms and possible optimisations with some benchmarks to compare. Algorithms will be implemented in **Java** and all shown code and algorithms are on this [GitHub project](https://github.com/Sylvain-Bugat/N-queens-puzzle-solvers) and are under the [MIT license](https://github.com/Sylvain-Bugat/N-queens-puzzle-solvers/blob/master/LICENSE).
+
+### Why implementations are in Java?
+
+Java is my main programming language and is very popular.
+
+Because of the Java runtime machine (JVM) overhead, Java programs can be slower than assembler/compiled languages(C, C++, Go, ...) programs for CPU-bound programs.
+
+**But a fast Java program is faster than a slow assembler/C program because of algorithm optimisations.**
+Nevertheless a same algortihm implemented in Java and in a optimized compiled language should be executed a faster by the compiled language program in most cases.
+
+### Benchmarks
+
+Benchmarks will be implemented in Java with multiple runs of the same algorithms with the fastest and the slowest runs discarding.
+
+To compare diferent benchmarks, they need to be run on the same computer at the same time (sequentially), that will be the case in theses posts.
+
