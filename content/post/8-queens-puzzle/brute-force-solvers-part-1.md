@@ -11,7 +11,7 @@ draft = "true"
 
 ## Explanations
 
-### Greedy
+### Brute-force
 
 Brute-force algorithms are also known as exhaustive algorithms, they consist of testing all possibilities with 8 (or more) queens on a chessboard like that for the first one:
 
@@ -90,5 +90,54 @@ This tested chessboard is just insane only a brute-force program can test this a
 
 ## Implementations
 
+```java
+private void solve(final int x, final int y) {
+
+	// Place a queen on the current position
+	chessboard.get(x).set(y, Boolean.TRUE);
+
+	// Test if the chessboard is a solution with exactly N queens
+	if (checkSolutionChessboard()) {
+		solutionCount++;
+		print();
+	}
+	else {
+
+		//Recursive call to the next position
+		final int nextX = (x + 1) % chessboardSize;
+		//Switch to the next line
+		if (0 == nextX) {
+
+			//End of the chessboard check
+			if (y + 1 < chessboardSize) {
+				solve(nextX, y + 1);
+			}
+		}
+		else {
+			solve(nextX, y);
+		}
+	}
+
+	// Place the queen on the current position
+	chessboard.get(x).set(y, Boolean.FALSE);
+
+	//Recursive call to the next position
+	final int nextX = (x + 1) % chessboardSize;
+	//Switch to the next line
+	if (0 == nextX) {
+
+		//End of the chessboard check
+		if (y + 1 < chessboardSize) {
+			solve(nextX, y + 1);
+		}
+	}
+	else {
+		solve(nextX, y);
+	}
+}
+```
+
+
+Complete implementation in the file [SlowBruteForceNQueensSolverWithListsNoQueensLimit](https://github.com/Sylvain-Bugat/N-queens-puzzle-solvers/blob/master/src/main/java/com/github/sbugat/nqueens/solvers/bruteforce/SlowBruteForceNQueensSolverWithListsNoQueensLimit.java)
 
 
