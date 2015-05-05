@@ -5,7 +5,6 @@ date = "2015-05-02T12:38:15+02:00"
 description = "N queens puzzle brute-force solver part 1"
 keywords = ["8 queens puzzle","8 queens","algorithm","N queens puzzle","N queens","puzzle","chessboard","chess","blog"]
 title = "8 queens puzzle brute-force solver part 1"
-draft = "true"
 
 +++
 
@@ -90,10 +89,17 @@ This tested chessboard is just insane only a brute-force program can test this a
 
 ## Implementations
 
+### Uber-brute-force
+
+This is the slowest implementation I have done to resolve this puzzle:
+
 ```java
+/** Chessboard represented by a list of lists. */
+private final List<List<Boolean>> chessboard;
+
 private void solve(final int x, final int y) {
 
-	// Place a queen on the current position
+	// Put a queen on the current position
 	chessboard.get(x).set(y, Boolean.TRUE);
 
 	// Test if the chessboard is a solution with exactly N queens
@@ -118,7 +124,7 @@ private void solve(final int x, final int y) {
 		}
 	}
 
-	// Place the queen on the current position
+	// Remove the queen on the current position
 	chessboard.get(x).set(y, Boolean.FALSE);
 
 	//Recursive call to the next position
@@ -137,7 +143,97 @@ private void solve(final int x, final int y) {
 }
 ```
 
+The complete implementation is in this source file [SlowBruteForceNQueensSolverWithListsNoQueensLimit](https://github.com/Sylvain-Bugat/N-queens-puzzle-solvers/blob/master/src/main/java/com/github/sbugat/nqueens/solvers/bruteforce/SlowBruteForceNQueensSolverWithListsNoQueensLimit.java).
 
-Complete implementation in the file [SlowBruteForceNQueensSolverWithListsNoQueensLimit](https://github.com/Sylvain-Bugat/N-queens-puzzle-solvers/blob/master/src/main/java/com/github/sbugat/nqueens/solvers/bruteforce/SlowBruteForceNQueensSolverWithListsNoQueensLimit.java)
+This implementation has a lot of weakness:
 
+* The algorithm don't stop after placing N queens
+* The solution is checked by analyzing the full chessboard after placing each queen
+* The chessboard is represented by list of lists
 
+The first point is a complexity overkill because it greatly increases the number of move required to test all possible solutions on the NxN chessboard. It's a waste of time to test any combination with over N queens, a back-track is needed to test another untested combination.
+
+### Benchmarks
+
+These benchmarks are done on a [Core i5 2500K](http://ark.intel.com/products/52210/Intel-Core-i5-2500K-Processor-6M-Cache-up-to-3_70-GHz):
+
+| N | execution time |
+| ------------- | ----------- |
+| 4 | 4,57 ms |
+| 5 | 2,47 s |
+| 6 | too long... |
+| 7 | too long... |
+
+### Brute-force
+
+This is just the previous implementation with a maximum limit of N placed queens at the same time on the chessboard:
+
+```java
+private void solve(final int x, final int y) {
+
+	// Put a queen on the current position
+	chessboard.get(x).set(y, Boolean.TRUE);
+
+	// All queens are sets on the chessboard then a solution may be present
+	if (getPlacedQueens() >= chessboardSize) {
+		if (checkSolutionChessboard()) {
+			solutionCount++;
+			print();
+		}
+	}
+	else {
+
+		// Recursive call to the next position
+		final int nextX = (x + 1) % chessboardSize;
+		// Switch to the next line
+		if (0 == nextX) {
+
+			// End of the chessboard check
+			if (y + 1 < chessboardSize) {
+				solve(nextX, y + 1);
+			}
+		}
+		else {
+			solve(nextX, y);
+		}
+	}
+
+	// Remove the queen on the current position
+	chessboard.get(x).set(y, Boolean.FALSE);
+
+	// Recursive call to the next position
+	final int nextX = (x + 1) % chessboardSize;
+	// Switch to the next line
+	if (0 == nextX) {
+
+		// End of the chessboard check
+		if (y + 1 < chessboardSize) {
+			solve(nextX, y + 1);
+		}
+	}
+	else {
+		solve(nextX, y);
+	}
+}
+```
+
+The complete implementation is in this source file [SlowBruteForceNQueensSolverWithLists](https://github.com/Sylvain-Bugat/N-queens-puzzle-solvers/blob/master/src/main/java/com/github/sbugat/nqueens/solvers/bruteforce/SlowBruteForceNQueensSolverWithLists.java).
+
+This implementation is still very unefficient but is a lot faster because a lot of dead combination are not tested. This optimisation is the first little step to implement a back-tracking algorithm.
+
+### Benchmarks
+
+These benchmarks are done on a [Core i5 2500K](http://ark.intel.com/products/52210/Intel-Core-i5-2500K-Processor-6M-Cache-up-to-3_70-GHz):
+
+| N | execution time |
+| ------------- | ----------- |
+| 4 | ? |
+| 5 | ? |
+| 6 | ? |
+| 7 | ? |
+| 8 | ? |
+| 9 | too long... |
+
+## Next optimisations?
+
+Other optimisations will be tested in the part 2, stay tuned of go to the [GitHub project](https://github.com/Sylvain-Bugat/N-queens-puzzle-solvers) to have some algorithms preview!
