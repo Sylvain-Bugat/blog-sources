@@ -161,8 +161,10 @@ These benchmarks are done on a [Core i5 2500K](http://ark.intel.com/products/522
 | ------------- | ----------- |
 | 4 | 4,57 ms |
 | 5 | 2,47 s |
-| 6 | too long... |
+| 6 | 2h09m |
 | 7 | too long... |
+
+Even on 6x6 chessboard, the needed time to count all solutions is very long!
 
 ### Brute-force
 
@@ -227,12 +229,14 @@ These benchmarks are done on a [Core i5 2500K](http://ark.intel.com/products/522
 
 | N | execution time |
 | ------------- | ----------- |
-| 4 | ? |
-| 5 | ? |
-| 6 | ? |
-| 7 | ? |
-| 8 | ? |
+| 4 | 3,50 ms |
+| 5 | 21,95 ms |
+| 6 | 432,14 ms |
+| 7 | 20,90 s |
+| 8 | 19.50 m |
 | 9 | too long... |
+
+On 7x7 chessboard, the needed time to count all solutions is quite long!
 
 ## Next optimisations?
 
