@@ -88,7 +88,7 @@ These benchmarks are done on a [Core i5 2500K](http://ark.intel.com/products/522
 | 6 | 152,93 ms |
 | 7 | 6,63 s |
 | 8 | 6.20 m |
-| 9 | too long... |
+| 9 | 6.10 h |
 | 10 | too long... |
 On 9x9 chessboard, the needed time to count all solutions is very long!
 
