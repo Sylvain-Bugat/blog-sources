@@ -85,7 +85,7 @@ var board3 = new ChessBoard('board3', {
 
 </script>
 
-This tested chessboard is just insane only a brute-force program can test this as a solution. But this algorithm is a floor value to test speed-ups and optimisations.
+This tested chessboard is just insane, only a brute-force program can test this as a solution. But this algorithm is a floor value to test speed-ups and optimisations.
 
 ## Implementations
 
@@ -151,7 +151,7 @@ This implementation has a lot of weakness:
 * The solution is checked by analyzing the full chessboard after placing each queen
 * The chessboard is represented by list of lists
 
-The first point is a complexity overkill because it greatly increases the number of move required to test all possible solutions on the NxN chessboard. It's a waste of time to test any combination with over N queens, a back-track is needed to test another untested combination.
+The first point is a complexity overkill because it greatly increases the number of moves required to test all possible solutions on the NxN chessboard. It's a waste of time to test any combination with over N queens, a back-track is needed to test another untested combination.
 
 ### Benchmarks
 
@@ -164,13 +164,16 @@ These benchmarks are done on a [Core i5 2500K](http://ark.intel.com/products/522
 | 6 | 2h09m |
 | 7 | too long... |
 
-Even on 6x6 chessboard, the needed time to count all solutions is very long!
+Even on 6x6 chessboard, the time needed to count all solutions is very long!
 
 ### Brute-force
 
 This is just the previous implementation with a maximum limit of N placed queens at the same time on the chessboard:
 
 ```java
+/** Chessboard represented by a list of lists. */
+private final List<List<Boolean>> chessboard;
+
 private void solve(final int x, final int y) {
 
 	// Put a queen on the current position
@@ -236,8 +239,8 @@ These benchmarks are done on a [Core i5 2500K](http://ark.intel.com/products/522
 | 8 | 19.50 m |
 | 9 | too long... |
 
-On 7x7 chessboard, the needed time to count all solutions is quite long!
+On 7x7 chessboard, the time needed to count all solutions is quite long!
 
 ## Next optimisations?
 
-Other optimisations will be tested in the part 2, stay tuned of go to the [GitHub project](https://github.com/Sylvain-Bugat/N-queens-puzzle-solvers) to have some algorithms preview!
+Other optimisations will be tested in the part 2, stay tuned or go to the [GitHub project](https://github.com/Sylvain-Bugat/N-queens-puzzle-solvers) to have some algorithms preview!
