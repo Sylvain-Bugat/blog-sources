@@ -92,7 +92,7 @@ Nevertheless a same algortihm implemented in Java and in a optimized compiled la
 
 ### Benchmarks
 
-Benchmarks will be implemented in Java with multiple runs of the same algorithms with the fastest and the slowest runs discarding.
+Benchmarks will be implemented in Java with multiple runs of the same algorithms with the fastest 20% and the slowest 20% runs discarding.
 
 To compare diferent benchmarks, they need to be run on the same computer at the same time (sequentially), that will be the case in theses posts.
 

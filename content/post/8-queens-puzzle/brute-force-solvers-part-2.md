@@ -5,7 +5,6 @@ date = "2015-05-06T20:46:15+02:00"
 description = "N queens puzzle brute-force solvers part 2"
 keywords = ["8 queens puzzle","8 queens","algorithm","N queens puzzle","N queens","puzzle","chessboard","chess","blog"]
 title = "8 queens puzzle brute-force solvers part 2"
-draft = true
 
 +++
 
@@ -20,6 +19,7 @@ In the N-queens-puzzle, the number of currently placed queens can stored in a va
 ### Implementation
 
 This is the previous implementation with a queen counter (variable  `placedQueens`)  limit of N placed queens at the same time on the chessboard:
+
 ```java
 /** Chessboard represented by a list of lists. */
 private final List<List<Boolean>> chessboard;
@@ -81,15 +81,15 @@ The complete implementation is in this source file [BruteForceNQueensSolverWithL
 
 These benchmarks are done on a [Core i5 2500K](http://ark.intel.com/products/52210/Intel-Core-i5-2500K-Processor-6M-Cache-up-to-3_70-GHz):
 
-| N | execution time |
-| ------------- | ----------- |
-| 4 | 4,46 ms |
-| 5 | 6,18 ms |
-| 6 | 152,93 ms |
-| 7 | 6,63 s |
-| 8 | 6.20 m |
-| 9 | 6.10 h |
-| 10 | too long... |
+| chessboard size | execution time | number of runs |
+| ------------- | ----------- | ----------- |
+| 4 | 146.68 µs | 5000 |
+| 5 | 4.24 ms| 5000 |
+| 6 | 162.88 ms | 500 |
+| 7 | 7.49 s | 50 |
+| 8 | 6.20 m | 5 |
+| 9 | 6.10 h | 1 |
+| 10 | too long... | |
 On 9x9 chessboard, the needed time to count all solutions is very long!
 
 ## Use a two-dimentionnal array for the chessboard
@@ -101,6 +101,7 @@ The data structure used to represent the chessboard can be changed from a list o
 ### Implementation
 
 This is the previous implementation with an two-dimentionnal array instead of a list of lists:
+
 ```java
 /** Chessboard represented by a 2 dimentionnal array. */
 private final boolean[][] chessboard;
@@ -160,16 +161,15 @@ The complete implementation is in this source file [BruteForceNQueensSolverArray
 
 These benchmarks are done on a [Core i5 2500K](http://ark.intel.com/products/52210/Intel-Core-i5-2500K-Processor-6M-Cache-up-to-3_70-GHz):
 
-| N | execution time |
-| ------------- | ----------- |
-| 4 |  |
-| 5 |  |
-| 6 | |
-| 7 |  |
-| 8 |  |
-| 9 |  |
-| 10 | too long... |
-On 10x10 chessboard, the needed time to count all solutions is very long!
+| chessboard size | execution time | number of runs
+| ------------- | ----------- | ----------- |
+| 4 | 84.20 µs | 5000 |
+| 5 | 2.89 ms | 5000 | 
+| 6 | 94.52 ms | 500 |
+| 7 | 4.12 s | 50 |
+| 8 | 3.50 m | 5 |
+| 9 | too long... | |
+On 8x8 chessboard, the needed time to count all solutions is long!
 
 ## Next optimisations?
 

@@ -8,9 +8,9 @@ title = "8 queens puzzle brute-force solvers part 1"
 
 +++
 
-## Explanations
+## Brute-force
 
-### Brute-force
+### Explanation
 
 Brute-force algorithms are also known as exhaustive algorithms, they consist of testing all possibilities with 8 (or more) queens on a chessboard like that for the first one:
 
@@ -60,7 +60,9 @@ var board2 = new ChessBoard('board2', {
 
 It is clear that this algorithm is uneficient because the second placed queen is already invalid and next positionned and tested queens are just a waste of time. No solution can be found with 2 queens on the 2 first positions for example.
 
-### Uber-brute-force
+## Uber-brute-force
+
+### Explanation
 
 It's possible to make an algorithm **more uneficient** with no limit of simultaneous placed queens like this chessboard as the first tested "solution":
 
@@ -87,9 +89,7 @@ var board3 = new ChessBoard('board3', {
 
 This tested chessboard is just insane, only a brute-force program can test this as a solution. But this algorithm is a floor value to test speed-ups and optimisations.
 
-## Implementations
-
-### Uber-brute-force
+### Implementation
 
 This is the slowest implementation I have done to resolve this puzzle:
 
@@ -157,16 +157,18 @@ The first point is a complexity overkill because it greatly increases the number
 
 These benchmarks are done on a [Core i5 2500K](http://ark.intel.com/products/52210/Intel-Core-i5-2500K-Processor-6M-Cache-up-to-3_70-GHz):
 
-| N | execution time |
+| chessboard size | execution time |
 | ------------- | ----------- |
-| 4 | 4,57 ms |
-| 5 | 2,47 s |
+| 4 | 4.57 ms |
+| 5 | 2.47 s |
 | 6 | 2h09m |
 | 7 | too long... |
 
 Even on 6x6 chessboard, the time needed to count all solutions is very long!
 
-### Brute-force
+## Brute-force
+
+### Implementation
 
 This is just the previous implementation with a maximum limit of N placed queens at the same time on the chessboard:
 
@@ -230,17 +232,17 @@ This implementation is still very unefficient but is a lot faster because a lot 
 
 These benchmarks are done on a [Core i5 2500K](http://ark.intel.com/products/52210/Intel-Core-i5-2500K-Processor-6M-Cache-up-to-3_70-GHz):
 
-| N | execution time |
+| chessboard size | execution time |
 | ------------- | ----------- |
-| 4 | 3,50 ms |
-| 5 | 21,95 ms |
-| 6 | 432,14 ms |
-| 7 | 20,90 s |
+| 4 | 3.50 ms |
+| 5 | 21.95 ms |
+| 6 | 432.14 ms |
+| 7 | 20.90 s |
 | 8 | 19.50 m |
 | 9 | too long... |
 
-On 7x7 chessboard, the time needed to count all solutions is quite long!
+On 8x8 chessboard, the time needed to count all solutions is quite long!
 
 ## Next optimisations?
 
-Other optimisations will be tested in the part 2, stay tuned or go to the [GitHub project](https://github.com/Sylvain-Bugat/N-queens-puzzle-solvers) to have some algorithms preview!
+Next optimisations are tested in the part 2, click on the link below.
