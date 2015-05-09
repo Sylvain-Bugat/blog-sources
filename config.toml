@@ -1,4 +1,4 @@
-baseurl = "http://sylvain-bugat.github.io/"
+baseurl = "http://sylvain-bugat.github.io"
 languageCode = "en-us"
 disqusShortname = "batchcavern"
 title = "Batch cavern"
