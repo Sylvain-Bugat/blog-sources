@@ -92,18 +92,18 @@ These benchmarks are done on a [Core i5 2500K](http://ark.intel.com/products/522
 | 10 | too long... | |
 On 9x9 chessboard, the needed time to count all solutions is very long!
 
-## Use a two-dimentionnal array for the chessboard
+## Use a two-dimensional array for the chessboard
 
 ### Explaination
 
-The data structure used to represent the chessboard can be changed from a list of lists to a two-dimentionnal array. Data access is faster because it's more direct without any method call, and the stored data can be a primitive type (boolean in this case intead of Boolean object).
+The data structure used to represent the chessboard can be changed from a list of lists to a two-dimensional array. Data access is faster because it's more direct without any method call, and the stored data can be a primitive type (boolean in this case intead of Boolean object).
 
 ### Implementation
 
-This is the previous implementation with an two-dimentionnal array instead of a list of lists:
+This is the previous implementation with an two-dimensional array instead of a list of lists:
 
 ```java
-/** Chessboard represented by a 2 dimentionnal array. */
+/** Chessboard represented by a 2 dimensional array. */
 private final boolean[][] chessboard;
 /** Current number of queens on the chessboard. */
 private int placedQueens;
@@ -173,4 +173,4 @@ On 8x8 chessboard, the needed time to count all solutions is long!
 
 ## Next optimisations?
 
-Other optimisations will be tested in the part 3, stay tuned of go to the [GitHub project](https://github.com/Sylvain-Bugat/N-queens-puzzle-solvers) to have some algorithms preview!
+Next optimisations are tested in the part 3, click on the link below.
