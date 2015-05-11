@@ -74,7 +74,7 @@ These benchmarks are done on a [Core i5 2500K](http://ark.intel.com/products/522
 On 9x9 chessboard, the needed time to count all solutions is very long!
 
 
-## Adding a grids constraints
+## Add grid constraints
 
 ### Explaination
 
@@ -106,10 +106,10 @@ private void solve(final int position) {
 	chessboard[position] = true;
 	lineCounts[y]++;
 	columnCounts[x]++;
-	final int ascendingDiagnonal = x + y;
+	final int ascendingDiagonal = x + y;
 	final int descendingDiagnonal = x + chessboardSize - 1 - y;
-	ascendingDiagonalCounts[ascendingDiagnonal]++;
-	descendingDiagonalCounts[descendingDiagnonal]++;
+	ascendingDiagonalCounts[ascendingDiagonal]++;
+	descendingDiagonalCounts[descendingDiagonal]++;
 	placedQueens++;
 
 	// All queens are sets then a solution may be present
@@ -129,8 +129,8 @@ private void solve(final int position) {
 
 	// Remove the queen on the current position
 	placedQueens--;
-	ascendingDiagonalCounts[ascendingDiagnonal]--;
-	descendingDiagonalCounts[descendingDiagnonal]--;
+	ascendingDiagonalCounts[ascendingDiagonal]--;
+	descendingDiagonalCounts[descendingDiagonal]--;
 	lineCounts[y]--;
 	columnCounts[x]--;
 	chessboard[position] = false;
