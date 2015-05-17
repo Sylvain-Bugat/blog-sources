@@ -1,7 +1,7 @@
 +++
 categories = ["code","8 queens puzzle"]
 series = ["8 queens puzzle"]
-date = "2015-05-12T00:19:29+02:00"
+date = "2015-05-17T00:19:29+02:00"
 description = "N queens puzzle brute-force solvers part 5"
 keywords = ["8 queens puzzle","8 queens","algorithm","N queens puzzle","N queens","puzzle","chessboard","chess","blog"]
 title = "8 queens puzzle brute-force solvers part 5"

@@ -1,11 +1,10 @@
 +++
 categories = ["code","8 queens puzzle"]
 series = ["8 queens puzzle"]
-date = "2015-05-10T00:18:54+02:00"
+date = "2015-05-14T00:18:54+02:00"
 description = "N queens puzzle brute-force solvers part 4"
 keywords = ["8 queens puzzle","8 queens","algorithm","N queens puzzle","N queens","puzzle","chessboard","chess","blog"]
 title = "8 queens puzzle brute-force solvers part 4"
-draft = true
 
 +++
 
@@ -97,25 +96,25 @@ These benchmarks are done on a [Core i5 2500K](http://ark.intel.com/products/522
 
 | chessboard size | execution time | number of runs |
 | ------------- | ----------- | ----------- |
-| 4 | 6,03 µs | 5000 |
-| 5 | 61,93 µs | 5000 |
-| 6 | 997,29 µs | 500 |
-| 7 | 22,05 ms | 50 |
-| 8 | 404,07 ms | 50 |
-| 9 | 9,32 s | 5 |
+| 4 | 6.03 µs | 5000 |
+| 5 | 61.93 µs | 5000 |
+| 6 | 997.29 µs | 500 |
+| 7 | 22.05 ms | 50 |
+| 8 | 404.07 ms | 50 |
+| 9 | 7,41 s | 50 |
 | 10 | too long... |
-On 10x10 chessboard, the needed time to count all solutions is very long!
+On 10x10 chessboard, the needed time to count all solutions is long.
 
 
 ## Reduced recursion
 
 ### Explaination
 
-In the N-queens-puzzle, the number of currently placed queens per column, line and diagonals can stored in arrays variables, when a queen is put on the chessboard theses variables are incremented at the correct offsets and when a queen is removed theses variables must be decremented at the same offsets.
+A single recursive call can be used on each line to test sequentially each possible position. On a N x N chessboard, only N recursive calls are needed to test all possible combinations.
 
 ### Implementation
 
-This is the previous implementation with 4 new constraits for lines, columns and both diagnonals:
+This is the previous implementation with a `for` loop to test all possible positions on each line:
 
 ```java
 /** Chessboard represented by a 2 dimensional array. */
@@ -167,14 +166,15 @@ These benchmarks are done on a [Core i5 2500K](http://ark.intel.com/products/522
 
 | chessboard size | execution time | number of runs |
 | ------------- | ----------- | ----------- |
-| 4 | 6,48 µs | 5000 |
-| 5 | 60,74 µs | 5000 |
-| 6 | 850,48 µs | 5000 |
-| 7 | 18,08 ms | 500 |
-| 8 | 323,31 ms | 50 |
-| 9 | 8,79 s | 5 |
-| 10 | too long... |
-On 10x10 chessboard, the needed time to count all solutions is very long!
+| 4 | 6.48 µs | 5000 |
+| 5 | 60.74 µs | 5000 |
+| 6 | 850.48 µs | 5000 |
+| 7 | 18.08 ms | 500 |
+| 8 | 323.31 ms | 50 |
+| 9 | 8.79 s | 5 |
+| 10 | 3.32 m | 5 |
+| 11 | too long... |
+On 10x10 chessboard, the needed time to count all solutions is long!
 
 ## Next optimisations?
 

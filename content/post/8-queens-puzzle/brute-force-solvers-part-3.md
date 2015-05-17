@@ -160,4 +160,4 @@ On 9x9 chessboard, the needed time to count all solutions is very long!
 
 ## Next optimisations?
 
-Other optimisations will be tested in the part 4, stay tuned of go to the [GitHub project](https://github.com/Sylvain-Bugat/N-queens-puzzle-solvers) to have some algorithms preview!
+Next optimisations are tested in the part 4, click on the link below.
