@@ -15,10 +15,10 @@ This post is the first of a article series about the 8/N queens puzzle solving.
 The [8 queens on a chessboard](http://en.wikipedia.org/wiki/Eight_queens_puzzle) is a classic puzzle which consists of placing 8 queens on a chessboard with only one queen on each row, column and diagonal, you can try it with this chessboard (errors are not visible yet):
 
 <div id="board" style="width: 400px"></div>
-<input type="button" id="clearButton" value="Clear chessboard" />
+
+<input type="button" id="clearButton" value="Clear chessboard"></input>
 
 <script>
-
 var board = new ChessBoard('board', {
 	draggable: true,
 	dropOffBoard: 'trash',
@@ -26,10 +26,11 @@ var board = new ChessBoard('board', {
 	showNotation: false
 });
 $('#clearButton').on('click', board.clear);
-
 </script>
 
-This base Javascript is from [chessboard.js.com](http://chessboardjs.com/) ([GitHub link](https://github.com/oakmac/chessboardjs/)) under the [MIT license](https://github.com/oakmac/chessboardjs/blob/master/LICENSE).
+
+This Javascript is based on [chessboard.js.com](http://chessboardjs.com/) ([GitHub link](https://github.com/oakmac/chessboardjs/)) under the [MIT license](https://github.com/oakmac/chessboardjs/blob/master/LICENSE). The modified version of this script can be found [here](https://github.com/Sylvain-Bugat/blog-sources/blob/master/themes/hyde-x/static/js/chessboard/chessboard-0.3.0.js).
+
 Queen image is from [Pixabay](http://pixabay.com/en/chess-queen-meeple-white-game-36310/) under the [CC0 Public Domain](http://creativecommons.org/publicdomain/zero/1.0/deed).
 
 ### Extention to N queens
@@ -73,7 +74,26 @@ Known number of solutions for N from 1 to 26 are:
 
 Source: sequence [A000170](http://oeis.org/A000170) on [OEIS](http://oeis.org/).
 
-On a classic chessboard there is 92 distinct solutions.
+On a classic chessboard there is 92 distinct solutionsn and this chessboard is one solution:
+
+<div id="board2" style="width: 400px">
+	<script>
+	var position = {
+	  c8: 'wQ',
+	  e7: 'wQ',
+	  h6: 'wQ',
+	  d5: 'wQ',
+	  a4: 'wQ',
+	  g3: 'wQ',
+	  b2: 'wQ',
+	  f1: 'wQ'
+	};
+	new ChessBoard('board2', {
+		position: position,
+		showNotation: false
+	});
+	</script>
+</div>
 
 ## Resolve the puzzle
 
