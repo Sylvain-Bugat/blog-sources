@@ -21,7 +21,14 @@ For example with this chessboard, it's useless to put a queen on the last 7 posi
 <script>
 
 var position = {
-  a8: 'wQ'
+  a8: 'wQ',
+  b8: 'rQ',
+  c8: 'rQ',
+  d8: 'rQ',
+  e8: 'rQ',
+  f8: 'rQ',
+  g8: 'rQ',
+  h8: 'rQ'
 };
 var board = new ChessBoard('board', {
 	position: position,

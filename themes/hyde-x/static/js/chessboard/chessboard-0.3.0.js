@@ -35,7 +35,7 @@ function validSquare(square) {
 
 function validPieceCode(code) {
   if (typeof code !== 'string') return false;
-  return (code.search(/^[bw][KQRNBP]$/) !== -1);
+  return (code.search(/^[rbw][KQRNBP]$/) !== -1);
 }
 
 // TODO: this whole function could probably be replaced with a single regex
