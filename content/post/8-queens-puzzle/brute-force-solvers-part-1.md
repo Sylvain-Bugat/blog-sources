@@ -243,6 +243,16 @@ These benchmarks are done on a [Core i5 2500K](http://ark.intel.com/products/522
 
 On 8x8 chessboard, the time needed to count all solutions is quite long!
 
+Comparison of placed queens between theses 2 algorithms:
+
+| chessboard size | uber-brute-force | brute-force | change |
+| ------------- | ----------- | ----------- | ----------- |
+| 1 | 1 |  |  |
+| 2 | 15 |  |  |
+| 3 | 511 |  |  |
+| 4 | 65531 |  |  |
+| 5 | 33554379 |  |  |
+
 ## Next optimisations?
 
 Next optimisations are tested in the part 2, click on the link below.
