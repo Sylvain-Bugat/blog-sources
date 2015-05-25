@@ -19,15 +19,14 @@ The [8 queens on a chessboard](http://en.wikipedia.org/wiki/Eight_queens_puzzle)
 <input type="button" id="clearButton" value="Clear chessboard"></input>
 
 <script>
-var board = new ChessBoard('board', {
-	draggable: true,
-	dropOffBoard: 'trash',
-	sparePieces: true,
-	showNotation: false
-});
-$('#clearButton').on('click', board.clear);
+	var board = new ChessBoard('board', {
+		draggable: true,
+		dropOffBoard: 'trash',
+		sparePieces: true,
+		showNotation: false
+	});
+	$('#clearButton').on('click', board.clear);
 </script>
-
 
 This Javascript is based on [chessboard.js.com](http://chessboardjs.com/) ([GitHub link](https://github.com/oakmac/chessboardjs/)) under the [MIT license](https://github.com/oakmac/chessboardjs/blob/master/LICENSE). The modified version of this script can be found [here](https://github.com/Sylvain-Bugat/blog-sources/blob/master/themes/hyde-x/static/js/chessboard/chessboard-0.3.0.js).
 
@@ -76,24 +75,24 @@ Source: sequence [A000170](http://oeis.org/A000170) on [OEIS](http://oeis.org/).
 
 On a classic chessboard there is 92 distinct solutionsn and this chessboard is one solution:
 
-<div id="board2" style="width: 400px">
-	<script>
-	var position = {
-	  c8: 'wQ',
-	  e7: 'wQ',
-	  h6: 'wQ',
-	  d5: 'wQ',
-	  a4: 'wQ',
-	  g3: 'wQ',
-	  b2: 'wQ',
-	  f1: 'wQ'
+<div id="solutionBoard" style="width: 400px"></div>
+
+<script>
+	var positions = {
+		c8: 'wQ',
+		e7: 'wQ',
+		h6: 'wQ',
+		d5: 'wQ',
+		a4: 'wQ',
+		g3: 'wQ',
+		b2: 'wQ',
+		f1: 'wQ'
 	};
-	new ChessBoard('board2', {
-		position: position,
+	new ChessBoard('solutionBoard', {
+		position: positions,
 		showNotation: false
 	});
-	</script>
-</div>
+</script>
 
 ## Resolve the puzzle
 
