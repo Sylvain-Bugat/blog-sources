@@ -203,6 +203,7 @@ var MINIMUM_JQUERY_VERSION = '1.7.0',
 var CSS = {
   alpha: 'alpha-d2270',
   black: 'black-3c85d',
+  blackred: 'black-red-2b666',
   board: 'board-b72b1',
   chessboard: 'chessboard-63f37',
   clearfix: 'clearfix-7da63',
@@ -216,7 +217,8 @@ var CSS = {
   sparePiecesBottom: 'spare-pieces-bottom-ae20f',
   sparePiecesTop: 'spare-pieces-top-4028b',
   square: 'square-55d63',
-  white: 'white-1e1d7'
+  white: 'white-1e1d7',
+  whitered: 'white-red-4a666'
 };
 
 //------------------------------------------------------------------------------
@@ -527,7 +529,7 @@ function createElIds() {
   }
 
   // spare pieces
-  var pieces = 'KQRBNP'.split('');
+  var pieces = 'Q'.split('');
   for (var i = 0; i < pieces.length; i++) {
     var whitePiece = 'w' + pieces[i];
     var blackPiece = 'b' + pieces[i];
@@ -1108,6 +1110,7 @@ function trashDraggedPiece() {
 
 function dropDraggedPieceOnSquare(square) {
   removeSquareHighlights();
+  
 
   // update position
   var newPosition = deepCopy(CURRENT_POSITION);
@@ -1117,7 +1120,8 @@ function dropDraggedPieceOnSquare(square) {
 
   // get target square information
   var targetSquarePosition = $('#' + SQUARE_ELS_IDS[square]).offset();
-
+console.log(DRAGGED_PIECE_SOURCE);
+	checkChessboard(newPosition);
   // animation complete
   var complete = function() {
     drawPositionInstant();
@@ -1277,30 +1281,38 @@ function stopDraggedPiece(location) {
   }
 }
 
-function checkChessboard() {
+function checkChessboard(obj) {
+
+  if (validPositionObject(obj) !== true) {
+    return false;
+  }
+
+  var fen = '';
 
   var currentRow = 8;
-  for (var i = 0; i < 8; i++) {
-    var row = rows[i].split('');
-    var colIndex = 0;
+  for (var i = 8; i > 0; i--) {
+    for (var j = 0; j < 8; j++) {
+      var square = COLUMNS[j] + i;
 
-    // loop through each character in the FEN section
-    for (var j = 0; j < row.length; j++) {
-      // number / empty squares
-      if (row[j].search(/[1-8]/) !== -1) {
-        var emptySquares = parseInt(row[j], 10);
-        colIndex += emptySquares;
+      // piece exists
+      if (obj.hasOwnProperty(square) === true) {
+        fen += pieceCodeToFen(obj[square]);
+        console.log(boardEl.find(square).attr('data-square'));
       }
-      // piece
+
+      // empty space
       else {
-        var square = COLUMNS[colIndex] + currentRow;
-        position[square] = fenToPieceCode(row[j]);
-        colIndex++;
+        fen += '1';
       }
     }
 
-    currentRow--;
+    if (i !== 7) {
+      fen += '/';
+    }
   }
+  
+   console.log(boardEl.find('.' + CSS.square));
+  console.log(fen);
 }
 
 //------------------------------------------------------------------------------
