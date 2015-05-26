@@ -243,15 +243,17 @@ These benchmarks are done on a [Core i5 2500K](http://ark.intel.com/products/522
 
 On 8x8 chessboard, the time needed to count all solutions is quite long!
 
-Comparison of placed queens between theses 2 algorithms:
+Comparison of placed and removed queens between theses 2 algorithms:
 
 | chessboard size | uber-brute-force | brute-force | change |
 | ------------- | ----------- | ----------- | ----------- |
-| 1 | 1 |  |  |
-| 2 | 15 |  |  |
-| 3 | 511 |  |  |
-| 4 | 65531 |  |  |
-| 5 | 33554379 |  |  |
+| 1 | 1 | 1 |  |
+| 2 | 15 | 10 | -33% |
+| 3 | 511 | 129 | -75% |
+| 4 | 65,531 | 2,516 | -96% |
+| 5 | 33,554,379 | 68,405 | -99.8% |
+
+The number of moves with the uber-brute-force algorithm became huge very quickly  and the speed up of only placing a maximum of N queens on a NxN chessboard is amazing!
 
 ## Next optimisations?
 
