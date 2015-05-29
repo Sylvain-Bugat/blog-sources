@@ -253,7 +253,7 @@ Comparison of placed and removed queens between theses 2 algorithms:
 | 4 | 65,531 | 2,516 | -96% |
 | 5 | 33,554,379 | 68,405 | -99.8% |
 
-The number of moves with the uber-brute-force algorithm became huge very quickly  and the speed up of only placing a maximum of N queens on a NxN chessboard is amazing!
+The number of moves with the uber-brute-force algorithm became huge very quickly and the speed up of only placing a maximum of N queens on a NxN chessboard is amazing!
 
 ## Next optimisations?
 

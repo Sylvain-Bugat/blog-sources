@@ -92,6 +92,20 @@ These benchmarks are done on a [Core i5 2500K](http://ark.intel.com/products/522
 | 10 | too long... | |
 On 9x9 chessboard, the needed time to count all solutions is very long!
 
+Comparison of read square between this algorithm and the same without the queen constraint:
+
+| chessboard size | brute-force | brute-force with queen constraint | change |
+| ------------- | ----------- | ----------- | ----------- |
+| 1 | 5 | 4 | -20% |
+| 2 | 86 | 46 | -46% |
+| 3 | 1,955 | 794 | -59% |
+| 4 | 60,780 | 20,524 | -66% |
+| 5 | 2,434,873 | 724,748 | -70% |
+| 6 | 117,983,963 | 31,890,143 | -72% |
+| 7 | 6,659,907,867 | 1,660,790,226 | -75% |
+
+The number of read square is lower with the queen constraint because the chessboard don't need to be read to check the number of placed queens.
+
 ## Use a two-dimensional array for the chessboard
 
 ### Explaination
@@ -114,7 +128,7 @@ private void solve(final int x, final int y) {
 	chessboard[x][y] = true;
 	placedQueens++;
 
-	// All queens are sets on the chessboard then a solution may be present
+	// All queens on the chessboard then a solution may be present
 	if (placedQueens >= chessboardSize) {
 		if (checkSolutionChessboard()) {
 			solutionCount++;
