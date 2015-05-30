@@ -181,7 +181,7 @@ private void solve(final int x, final int y) {
 	// Put a queen on the current position
 	chessboard.get(x).set(y, Boolean.TRUE);
 
-	// All queens are sets on the chessboard then a solution may be present
+	// All queens are sets then a solution may be present
 	if (getPlacedQueens() >= chessboardSize) {
 		if (checkSolutionChessboard()) {
 			solutionCount++;
@@ -243,7 +243,7 @@ These benchmarks are done on a [Core i5 2500K](http://ark.intel.com/products/522
 
 On 8x8 chessboard, the time needed to count all solutions is quite long!
 
-Comparison of placed and removed queens between theses 2 algorithms:
+Comparison of placed queens between theses 2 algorithms:
 
 | chessboard size | uber-brute-force | brute-force | change |
 | ------------- | ----------- | ----------- | ----------- |
