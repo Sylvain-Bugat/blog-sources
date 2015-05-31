@@ -2,6 +2,10 @@
  * Tweaks and overrides to hyde.css
  */
 
+body{
+	font-size: 20px;
+}
+ 
 .sidebar-about h1 {
   color: #fff;
   margin-top: 0;
@@ -14,3 +18,5 @@
   list-style: none;
   margin-bottom: 1rem;
 }
+
+

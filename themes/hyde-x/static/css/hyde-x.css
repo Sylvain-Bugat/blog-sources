@@ -1,6 +1,9 @@
 /*
  * Additional CSS for Hyde-X
  */
+body{
+	font-size: 20px;
+}
 
 .posts {
   list-style: none;
