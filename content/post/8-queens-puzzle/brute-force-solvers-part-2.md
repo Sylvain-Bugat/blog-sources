@@ -92,17 +92,188 @@ These benchmarks are done on a [Core i5 2500K](http://ark.intel.com/products/522
 | 10 | too long... | |
 On 9x9 chessboard, the needed time to count all solutions is very long!
 
-Comparison of read square between this algorithm and the same without the queen constraint:
+## Algorithms comparisons
 
-| chessboard size | brute-force | brute-force with queen constraint | change |
-| ------------- | ----------- | ----------- | ----------- |
-| 1 | 5 | 4 | -20% |
-| 2 | 86 | 46 | -46% |
-| 3 | 1,955 | 794 | -59% |
-| 4 | 60,780 | 20,524 | -66% |
-| 5 | 2,434,873 | 724,748 | -70% |
-| 6 | 117,983,963 | 31,890,143 | -72% |
-| 7 | 6,659,907,867 | 1,660,790,226 | -75% |
+Comparison of the previous and this algorithm:
+
+<div class="panel panel-default tab-box">
+	<div class="panel-heading">
+		<h3 class="panel-title">
+			<i class="fa fa-signal"></i>Algorithms comparison
+		</h3>
+		<ul class="nav nav-tabs">
+			<li>
+				<a href="#prefix1queenPlacementsTab" data-toggle="tab" data-identifier="prefix1queenPlacementsGraph">moves</a>
+			</li>
+			<li class="active">
+				<a href="#prefix1methodCallsTab" data-toggle="tab" data-identifier="prefix1methodCallsGraph">method calls</a>
+			</li>
+			<li>
+				<a href="#prefix1squareReadsTab" data-toggle="tab" data-identifier="prefix1squareReadsGraph">reads</a>
+			</li>
+			<li>
+				<a href="#prefix1explicitTestsTab" data-toggle="tab" data-identifier="prefix1explicitTestsGraph">tests</a>
+			</li>
+			<li>
+				<a href="#prefix1implicitTestsTab" data-toggle="tab" data-identifier="prefix1implicitTestsGraph">loop tests</a>
+			</li>
+		</ul>
+	</div>
+	<div class="panel-body">
+		<div class="tab-content">
+			<div id="prefix1queenPlacementsTab" class="tab-pane">
+				<div class="row">
+					<div class="caption">
+						Queen placements count
+					</div>
+					<div id="prefix1queenPlacements"></div>
+					<div class="legend">
+						<span class="label" style="background-color: #A52A2A;">List brute-force</span>
+						<span class="label" style="background-color: #72A0C1;">Queen constraint brute-force</span>
+					</div>
+				</div>
+			</div>
+			<div id="prefix1methodCallsTab" class="tab-pane active">
+				<div class="row">
+					<div class="caption">
+						Method calls count
+					</div>
+					<div id="prefix1methodCalls"></div>
+					<div class="legend">
+						<span class="label" style="background-color: #A52A2A;">List brute-force</span>
+						<span class="label" style="background-color: #72A0C1;">Queen constraint brute-force</span>
+					</div>
+				</div>
+			</div>
+			<div id="prefix1squareReadsTab" class="tab-pane">
+				<div class="row">
+					<div class="caption">
+						Square reads count
+					</div>
+					<div id="prefix1squareReads"></div>
+					<div class="legend">
+						<span class="label" style="background-color: #A52A2A;">List brute-force</span>
+						<span class="label" style="background-color: #72A0C1;">Queen constraint brute-force</span>
+					</div>
+				</div>
+			</div>
+			<div id="prefix1explicitTestsTab" class="tab-pane">
+				<div class="row">
+					<div class="caption">
+						Explicit tests count
+					</div>
+					<div id="prefix1explicitTests"></div>
+					<div class="legend">
+						<span class="label" style="background-color: #A52A2A;">List brute-force</span>
+						<span class="label" style="background-color: #72A0C1;">Queen constraint brute-force</span>
+					</div>
+				</div>
+			</div>
+			<div id="prefix1implicitTestsTab" class="tab-pane">
+				<div class="row">
+					<div class="caption">
+						Loop tests count
+					</div>
+					<div id="prefix1implicitTests"></div>
+					<div class="legend">
+						<span class="label" style="background-color: #A52A2A;">List brute-force</span>
+						<span class="label" style="background-color: #72A0C1;">Queen constraint brute-force</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+
+$('ul.nav a').on('shown.bs.tab', function (e) {
+	var types = $(this).attr("data-identifier");
+	var typesArray = types.split(",");
+	$.each(typesArray, function (key, value) {
+		eval(value + ".redraw()");
+		eval(value + ".resizeHandler()");
+	})
+});
+
+//Data
+var prefix1data = [
+	{"size": "1", "solver1queenPlacements": 1,  "solver1methodCalls": 23,  "solver1squareReads": 5,  "solver1explicitTests": 17,  "solver1implicitTests": 21,  "solver2queenPlacements": 1,  "solver2methodCalls": 19,  "solver2squareReads": 4,  "solver2explicitTests": 16,  "solver2implicitTests": 17},
+	{"size": "2", "solver1queenPlacements": 10,  "solver1methodCalls": 324,  "solver1squareReads": 86,  "solver1explicitTests": 175,  "solver1implicitTests": 200,  "solver2queenPlacements": 10,  "solver2methodCalls": 194,  "solver2squareReads": 46,  "solver2explicitTests": 135,  "solver2implicitTests": 110},
+	{"size": "3", "solver1queenPlacements": 129,  "solver1methodCalls": 6723,  "solver1squareReads": 1955,  "solver1explicitTests": 2895,  "solver1implicitTests": 3560,  "solver2queenPlacements": 129,  "solver2methodCalls": 3111,  "solver2squareReads": 794,  "solver2explicitTests": 1734,  "solver2implicitTests": 1496},
+	{"size": "4", "solver1queenPlacements": 2516,  "solver1methodCalls": 199258,  "solver1squareReads": 60780,  "solver1explicitTests": 76617,  "solver1implicitTests": 96417,  "solver2queenPlacements": 2516,  "solver2methodCalls": 75974,  "solver2squareReads": 20524,  "solver2explicitTests": 36361,  "solver2implicitTests": 33517},
+	{"size": "5", "solver1queenPlacements": 68405,  "solver1methodCalls": 7768189,  "solver1squareReads": 2434873,  "solver1explicitTests": 2846091,  "solver1implicitTests": 3553763,  "solver2queenPlacements": 68405,  "solver2methodCalls": 2569409,  "solver2squareReads": 724748,  "solver2explicitTests": 1135966,  "solver2implicitTests": 1091183},
+	{"size": "6", "solver1queenPlacements": 2391495,  "solver1methodCalls": 370248655,  "solver1squareReads": 117983963,  "solver1explicitTests": 132265835,  "solver1implicitTests": 162657186,  "solver2queenPlacements": 2391495,  "solver2methodCalls": 109575700,  "solver2squareReads": 31890143,  "solver2explicitTests": 46172015,  "solver2implicitTests": 45473931},
+	{"size": "7", "solver1queenPlacements": 102022809,  "solver1methodCalls": 20677761079,  "solver1squareReads": 6659907867,  "solver1explicitTests": 7271931036,  "solver1implicitTests": 8803458227,  "solver2queenPlacements": 102022809,  "solver2methodCalls": 5578385347,  "solver2squareReads": 1660790226,  "solver2explicitTests": 2272813395,  "solver2implicitTests": 2273998451},
+	{"size": "8", "solver1queenPlacements": 5130659560,  "solver1methodCalls": 1318173704582,  "solver1squareReads": 427654527254,  "solver1explicitTests": 458618310305,  "solver1implicitTests": 547241304569,  "solver2queenPlacements": 5130659560,  "solver2methodCalls": 327956409502,  "solver2squareReads": 99292315414,  "solver2explicitTests": 130256098465,  "solver2implicitTests": 131657880209}
+	];
+var prefix1queenPlacementsGraph = Morris.Line({
+	element: 'prefix1queenPlacements',
+	hideHover: 'auto',
+	data: prefix1data,
+	xkey: 'size',
+	ykeys: ['solver1queenPlacements', 'solver2queenPlacements'],
+	labels: ['List brute-force', 'Queen constraint brute-force'],
+	resize: true,
+	parseTime: false,
+	lineColors: ['#A52A2A', '#72A0C1'],
+	yLabelFormat: function(y) { return y.toLocaleString(); },
+	xLabelFormat: function(obj) { return (obj.x + 1).toLocaleString(); },
+});
+var prefix1methodCallsGraph = Morris.Line({
+	element: 'prefix1methodCalls',
+	hideHover: 'auto',
+	data: prefix1data,
+	xkey: 'size',
+	ykeys: ['solver1methodCalls', 'solver2methodCalls'],
+	labels: ['List brute-force', 'Queen constraint brute-force'],
+	resize: true,
+	parseTime: false,
+	lineColors: ['#A52A2A', '#72A0C1'],
+	yLabelFormat: function(y) { return y.toLocaleString(); },
+	xLabelFormat: function(obj) { return (obj.x + 1).toLocaleString(); },
+});
+var prefix1squareReadsGraph = Morris.Line({
+	element: 'prefix1squareReads',
+	hideHover: 'auto',
+	data: prefix1data,
+	xkey: 'size',
+	ykeys: ['solver1squareReads', 'solver2squareReads'],
+	labels: ['List brute-force', 'Queen constraint brute-force'],
+	resize: true,
+	parseTime: false,
+	lineColors: ['#A52A2A', '#72A0C1'],
+	yLabelFormat: function(y) { return y.toLocaleString(); },
+	xLabelFormat: function(obj) { return (obj.x + 1).toLocaleString(); },
+});
+var prefix1explicitTestsGraph = Morris.Line({
+	element: 'prefix1explicitTests',
+	hideHover: 'auto',
+	data: prefix1data,
+	xkey: 'size',
+	ykeys: ['solver1explicitTests', 'solver2explicitTests'],
+	labels: ['List brute-force', 'Queen constraint brute-force'],
+	resize: true,
+	parseTime: false,
+	lineColors: ['#A52A2A', '#72A0C1'],
+	yLabelFormat: function(y) { return y.toLocaleString(); },
+	xLabelFormat: function(obj) { return (obj.x + 1).toLocaleString(); },
+});
+var prefix1implicitTestsGraph = Morris.Line({
+	element: 'prefix1implicitTests',
+	hideHover: 'auto',
+	data: prefix1data,
+	xkey: 'size',
+	ykeys: ['solver1implicitTests', 'solver2implicitTests'],
+	labels: ['List brute-force', 'Queen constraint brute-force'],
+	resize: true,
+	parseTime: false,
+	lineColors: ['#A52A2A', '#72A0C1'],
+	yLabelFormat: function(y) { return y.toLocaleString(); },
+	xLabelFormat: function(obj) { return (obj.x + 1).toLocaleString(); },
+});
+
+</script>
 
 The number of read square is lower with the queen constraint because the chessboard don't need to be read to check the number of placed queens.
 
@@ -184,6 +355,190 @@ These benchmarks are done on a [Core i5 2500K](http://ark.intel.com/products/522
 | 8 | 3.50 m | 5 |
 | 9 | too long... | |
 On 8x8 chessboard, the needed time to count all solutions is long!
+
+## Algorithms comparisons
+
+Comparison of theses 2 algorithms:
+
+<div class="panel panel-default tab-box">
+	<div class="panel-heading">
+		<h3 class="panel-title">
+			<i class="fa fa-signal"></i>Algorithms comparison
+		</h3>
+		<ul class="nav nav-tabs">
+			<li>
+				<a href="#prefix2queenPlacementsTab" data-toggle="tab" data-identifier="prefix2queenPlacementsGraph">moves</a>
+			</li>
+			<li class="active">
+				<a href="#prefix2methodCallsTab" data-toggle="tab" data-identifier="prefix2methodCallsGraph">method calls</a>
+			</li>
+			<li>
+				<a href="#prefix2squareReadsTab" data-toggle="tab" data-identifier="prefix2squareReadsGraph">reads</a>
+			</li>
+			<li>
+				<a href="#prefix2explicitTestsTab" data-toggle="tab" data-identifier="prefix2explicitTestsGraph">tests</a>
+			</li>
+			<li>
+				<a href="#prefix2implicitTestsTab" data-toggle="tab" data-identifier="prefix2implicitTestsGraph">loop tests</a>
+			</li>
+		</ul>
+	</div>
+	<div class="panel-body">
+		<div class="tab-content">
+			<div id="prefix2queenPlacementsTab" class="tab-pane">
+				<div class="row">
+					<div class="caption">
+						Queen placements count
+					</div>
+					<div id="prefix2queenPlacements"></div>
+					<div class="legend">
+						<span class="label" style="background-color: #A52A2A;">Queen constraint brute-force</span>
+						<span class="label" style="background-color: #72A0C1;">Array brute-force</span>
+					</div>
+				</div>
+			</div>
+			<div id="prefix2methodCallsTab" class="tab-pane active">
+				<div class="row">
+					<div class="caption">
+						Method calls count
+					</div>
+					<div id="prefix2methodCalls"></div>
+					<div class="legend">
+						<span class="label" style="background-color: #A52A2A;">Queen constraint brute-force</span>
+						<span class="label" style="background-color: #72A0C1;">Array brute-force</span>
+					</div>
+				</div>
+			</div>
+			<div id="prefix2squareReadsTab" class="tab-pane">
+				<div class="row">
+					<div class="caption">
+						Square reads count
+					</div>
+					<div id="prefix2squareReads"></div>
+					<div class="legend">
+						<span class="label" style="background-color: #A52A2A;">Queen constraint brute-force</span>
+						<span class="label" style="background-color: #72A0C1;">Array brute-force</span>
+					</div>
+				</div>
+			</div>
+			<div id="prefix2explicitTestsTab" class="tab-pane">
+				<div class="row">
+					<div class="caption">
+						Explicit tests count
+					</div>
+					<div id="prefix2explicitTests"></div>
+					<div class="legend">
+						<span class="label" style="background-color: #A52A2A;">Queen constraint brute-force</span>
+						<span class="label" style="background-color: #72A0C1;">Array brute-force</span>
+					</div>
+				</div>
+			</div>
+			<div id="prefix2implicitTestsTab" class="tab-pane">
+				<div class="row">
+					<div class="caption">
+						Loop tests count
+					</div>
+					<div id="prefix2implicitTests"></div>
+					<div class="legend">
+						<span class="label" style="background-color: #A52A2A;">Queen constraint brute-force</span>
+						<span class="label" style="background-color: #72A0C1;">Array brute-force</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+
+$('ul.nav a').on('shown.bs.tab', function (e) {
+	var types = $(this).attr("data-identifier");
+	var typesArray = types.split(",");
+	$.each(typesArray, function (key, value) {
+		eval(value + ".redraw()");
+		eval(value + ".resizeHandler()");
+	})
+});
+
+//Data
+var prefix2data = [
+	{"size": "1", "solver1queenPlacements": 1,  "solver1methodCalls": 19,  "solver1squareReads": 4,  "solver1explicitTests": 16,  "solver1implicitTests": 17,  "solver2queenPlacements": 1,  "solver2methodCalls": 3,  "solver2squareReads": 4,  "solver2explicitTests": 16,  "solver2implicitTests": 17},
+	{"size": "2", "solver1queenPlacements": 10,  "solver1methodCalls": 194,  "solver1squareReads": 46,  "solver1explicitTests": 135,  "solver1implicitTests": 110,  "solver2queenPlacements": 10,  "solver2methodCalls": 16,  "solver2squareReads": 46,  "solver2explicitTests": 135,  "solver2implicitTests": 110},
+	{"size": "3", "solver1queenPlacements": 129,  "solver1methodCalls": 3111,  "solver1squareReads": 794,  "solver1explicitTests": 1734,  "solver1implicitTests": 1496,  "solver2queenPlacements": 129,  "solver2methodCalls": 213,  "solver2squareReads": 794,  "solver2explicitTests": 1734,  "solver2implicitTests": 1496},
+	{"size": "4", "solver1queenPlacements": 2516,  "solver1methodCalls": 75974,  "solver1squareReads": 20524,  "solver1explicitTests": 36361,  "solver1implicitTests": 33517,  "solver2queenPlacements": 2516,  "solver2methodCalls": 4338,  "solver2squareReads": 20524,  "solver2explicitTests": 36361,  "solver2implicitTests": 33517},
+	{"size": "5", "solver1queenPlacements": 68405,  "solver1methodCalls": 2569409,  "solver1squareReads": 724748,  "solver1explicitTests": 1135966,  "solver1implicitTests": 1091183,  "solver2queenPlacements": 68405,  "solver2methodCalls": 121545,  "solver2squareReads": 724748,  "solver2explicitTests": 1135966,  "solver2implicitTests": 1091183},
+	{"size": "6", "solver1queenPlacements": 2391495,  "solver1methodCalls": 109575700,  "solver1squareReads": 31890143,  "solver1explicitTests": 46172015,  "solver1implicitTests": 45473931,  "solver2queenPlacements": 2391495,  "solver2methodCalls": 4339291,  "solver2squareReads": 31890143,  "solver2explicitTests": 46172015,  "solver2implicitTests": 45473931},
+	{"size": "7", "solver1queenPlacements": 102022809,  "solver1methodCalls": 5578385347,  "solver1squareReads": 1660790226,  "solver1explicitTests": 2272813395,  "solver1implicitTests": 2273998451,  "solver2queenPlacements": 102022809,  "solver2methodCalls": 187923433,  "solver2squareReads": 1660790226,  "solver2explicitTests": 2272813395,  "solver2implicitTests": 2273998451}
+	];
+var prefix2queenPlacementsGraph = Morris.Line({
+	element: 'prefix2queenPlacements',
+	hideHover: 'auto',
+	data: prefix2data,
+	xkey: 'size',
+	ykeys: ['solver1queenPlacements', 'solver2queenPlacements'],
+	labels: ['Queen constraint brute-force', 'Array brute-force'],
+	resize: true,
+	parseTime: false,
+	lineColors: ['#A52A2A', '#72A0C1'],
+	yLabelFormat: function(y) { return y.toLocaleString(); },
+	xLabelFormat: function(obj) { return (obj.x + 1).toLocaleString(); },
+});
+var prefix2methodCallsGraph = Morris.Line({
+	element: 'prefix2methodCalls',
+	hideHover: 'auto',
+	data: prefix2data,
+	xkey: 'size',
+	ykeys: ['solver1methodCalls', 'solver2methodCalls'],
+	labels: ['Queen constraint brute-force', 'Array brute-force'],
+	resize: true,
+	parseTime: false,
+	lineColors: ['#A52A2A', '#72A0C1'],
+	yLabelFormat: function(y) { return y.toLocaleString(); },
+	xLabelFormat: function(obj) { return (obj.x + 1).toLocaleString(); },
+});
+var prefix2squareReadsGraph = Morris.Line({
+	element: 'prefix2squareReads',
+	hideHover: 'auto',
+	data: prefix2data,
+	xkey: 'size',
+	ykeys: ['solver1squareReads', 'solver2squareReads'],
+	labels: ['Queen constraint brute-force', 'Array brute-force'],
+	resize: true,
+	parseTime: false,
+	lineColors: ['#A52A2A', '#72A0C1'],
+	yLabelFormat: function(y) { return y.toLocaleString(); },
+	xLabelFormat: function(obj) { return (obj.x + 1).toLocaleString(); },
+});
+var prefix2explicitTestsGraph = Morris.Line({
+	element: 'prefix2explicitTests',
+	hideHover: 'auto',
+	data: prefix2data,
+	xkey: 'size',
+	ykeys: ['solver1explicitTests', 'solver2explicitTests'],
+	labels: ['Queen constraint brute-force', 'Array brute-force'],
+	resize: true,
+	parseTime: false,
+	lineColors: ['#A52A2A', '#72A0C1'],
+	yLabelFormat: function(y) { return y.toLocaleString(); },
+	xLabelFormat: function(obj) { return (obj.x + 1).toLocaleString(); },
+});
+var prefix2implicitTestsGraph = Morris.Line({
+	element: 'prefix2implicitTests',
+	hideHover: 'auto',
+	data: prefix2data,
+	xkey: 'size',
+	ykeys: ['solver1implicitTests', 'solver2implicitTests'],
+	labels: ['Queen constraint brute-force', 'Array brute-force'],
+	resize: true,
+	parseTime: false,
+	lineColors: ['#A52A2A', '#72A0C1'],
+	yLabelFormat: function(y) { return y.toLocaleString(); },
+	xLabelFormat: function(obj) { return (obj.x + 1).toLocaleString(); },
+});
+
+</script>
+
+The number of called methods is much lower when using an array because square reads and writes don't need method calls anymore.
 
 ## Next optimisations?
 
