@@ -243,17 +243,187 @@ These benchmarks are done on a [Core i5 2500K](http://ark.intel.com/products/522
 
 On 8x8 chessboard, the time needed to count all solutions is quite long!
 
-Comparison of placed queens between theses 2 algorithms:
+## Algorithms comparisons
 
-| chessboard size | uber-brute-force | brute-force | change |
-| ------------- | ----------- | ----------- | ----------- |
-| 1 | 1 | 1 |  |
-| 2 | 15 | 10 | -33% |
-| 3 | 511 | 129 | -75% |
-| 4 | 65,531 | 2,516 | -96% |
-| 5 | 33,554,379 | 68,405 | -99.8% |
+Comparison of theses 2 algorithms:
 
-The number of moves with the uber-brute-force algorithm became huge very quickly and the speed up of only placing a maximum of N queens on a NxN chessboard is amazing!
+<div class="panel panel-default tab-box">
+	<div class="panel-heading">
+		<h3 class="panel-title">
+			<i class="fa fa-signal"></i>Algorithms comparison
+		</h3>
+		<ul class="nav nav-tabs">
+			<li class="active">
+				<a href="#queenPlacementsTab" data-toggle="tab" data-identifier="queenPlacementsGraph">moves</a>
+			</li>
+			<li>
+				<a href="#methodCallsTab" data-toggle="tab" data-identifier="methodCallsGraph">method calls</a>
+			</li>
+			<li>
+				<a href="#squareReadsTab" data-toggle="tab" data-identifier="squareReadsGraph">reads</a>
+			</li>
+			<li>
+				<a href="#explicitTestsTab" data-toggle="tab" data-identifier="explicitTestsGraph">tests</a>
+			</li>
+			<li>
+				<a href="#implicitTestsTab" data-toggle="tab" data-identifier="implicitTestsGraph">loop tests</a>
+			</li>
+		</ul>
+	</div>
+	<div class="panel-body">
+		<div class="tab-content">
+			<div id="queenPlacementsTab" class="tab-pane active">
+				<div class="row">
+					<div class="caption">
+						Queen placements count
+					</div>
+					<div id="queenPlacements"></div>
+					<div class="legend">
+						<span class="label" style="background-color: #A52A2A;">Uber brute-force</span>
+						<span class="label" style="background-color: #72A0C1;">List brute-force</span>
+					</div>
+				</div>
+			</div>
+			<div id="methodCallsTab" class="tab-pane">
+				<div class="row">
+					<div class="caption">
+						Method calls count
+					</div>
+					<div id="methodCalls"></div>
+					<div class="legend">
+						<span class="label" style="background-color: #A52A2A;">Uber brute-force</span>
+						<span class="label" style="background-color: #72A0C1;">List brute-force</span>
+					</div>
+				</div>
+			</div>
+			<div id="squareReadsTab" class="tab-pane">
+				<div class="row">
+					<div class="caption">
+						Square reads count
+					</div>
+					<div id="squareReads"></div>
+					<div class="legend">
+						<span class="label" style="background-color: #A52A2A;">Uber brute-force</span>
+						<span class="label" style="background-color: #72A0C1;">List brute-force</span>
+					</div>
+				</div>
+			</div>
+			<div id="explicitTestsTab" class="tab-pane">
+				<div class="row">
+					<div class="caption">
+						Explicit tests count
+					</div>
+					<div id="explicitTests"></div>
+					<div class="legend">
+						<span class="label" style="background-color: #A52A2A;">Uber brute-force</span>
+						<span class="label" style="background-color: #72A0C1;">List brute-force</span>
+					</div>
+				</div>
+			</div>
+			<div id="implicitTestsTab" class="tab-pane">
+				<div class="row">
+					<div class="caption">
+						Loop tests count
+					</div>
+					<div id="implicitTests"></div>
+					<div class="legend">
+						<span class="label" style="background-color: #A52A2A;">Uber brute-force</span>
+						<span class="label" style="background-color: #72A0C1;">List brute-force</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+
+$('ul.nav a').on('shown.bs.tab', function (e) {
+	var types = $(this).attr("data-identifier");
+	var typesArray = types.split(",");
+	$.each(typesArray, function (key, value) {
+		eval(value + ".redraw()");
+		eval(value + ".resizeHandler()");
+	})
+});
+
+//Data
+var data = [
+	{"size": "1", "solver1queenPlacements": 1,  "solver1methodCalls": 22,  "solver1squareReads": 5,  "solver1explicitTests": 16,  "solver1implicitTests": 20,  "solver2queenPlacements": 1,  "solver2methodCalls": 23,  "solver2squareReads": 5,  "solver2explicitTests": 17,  "solver2implicitTests": 21},
+	{"size": "2", "solver1queenPlacements": 15,  "solver1methodCalls": 408,  "solver1squareReads": 106,  "solver1explicitTests": 225,  "solver1implicitTests": 236,  "solver2queenPlacements": 10,  "solver2methodCalls": 324,  "solver2squareReads": 86,  "solver2explicitTests": 175,  "solver2implicitTests": 200},
+	{"size": "3", "solver1queenPlacements": 511,  "solver1methodCalls": 19245,  "solver1squareReads": 5393,  "solver1explicitTests": 8277,  "solver1implicitTests": 9534,  "solver2queenPlacements": 129,  "solver2methodCalls": 6723,  "solver2squareReads": 1955,  "solver2explicitTests": 2895,  "solver2implicitTests": 3560},
+	{"size": "4", "solver1queenPlacements": 65531,  "solver1methodCalls": 3600248,  "solver1squareReads": 1069020,  "solver1explicitTests": 1402825,  "solver1implicitTests": 1668602,  "solver2queenPlacements": 2516,  "solver2methodCalls": 199258,  "solver2squareReads": 60780,  "solver2explicitTests": 76617,  "solver2implicitTests": 96417},
+	{"size": "5", "solver1queenPlacements": 33554379,  "solver1methodCalls": 2720078953,  "solver1squareReads": 839584223,  "solver1explicitTests": 1008454787,  "solver1implicitTests": 1208950192,  "solver2queenPlacements": 68405,  "solver2methodCalls": 7768189,  "solver2squareReads": 2434873,  "solver2explicitTests": 2846091,  "solver2implicitTests": 3553763}
+	];
+var queenPlacementsGraph = Morris.Line({
+	element: 'queenPlacements',
+	hideHover: 'auto',
+	data: data,
+	xkey: 'size',
+	ykeys: ['solver1queenPlacements', 'solver2queenPlacements'],
+	labels: ['Uber brute-force', 'List brute-force'],
+	resize: true,
+	parseTime: false,
+	lineColors: ['#A52A2A', '#72A0C1'],
+	yLabelFormat: function(y) { return y.toLocaleString(); },
+	xLabelFormat: function(obj) { return (obj.x + 1).toLocaleString(); },
+});
+var methodCallsGraph = Morris.Line({
+	element: 'methodCalls',
+	hideHover: 'auto',
+	data: data,
+	xkey: 'size',
+	ykeys: ['solver1methodCalls', 'solver2methodCalls'],
+	labels: ['Uber brute-force', 'List brute-force'],
+	resize: true,
+	parseTime: false,
+	lineColors: ['#A52A2A', '#72A0C1'],
+	yLabelFormat: function(y) { return y.toLocaleString(); },
+	xLabelFormat: function(obj) { return (obj.x + 1).toLocaleString(); },
+});
+var squareReadsGraph = Morris.Line({
+	element: 'squareReads',
+	hideHover: 'auto',
+	data: data,
+	xkey: 'size',
+	ykeys: ['solver1squareReads', 'solver2squareReads'],
+	labels: ['Uber brute-force', 'List brute-force'],
+	resize: true,
+	parseTime: false,
+	lineColors: ['#A52A2A', '#72A0C1'],
+	yLabelFormat: function(y) { return y.toLocaleString(); },
+	xLabelFormat: function(obj) { return (obj.x + 1).toLocaleString(); },
+});
+var explicitTestsGraph = Morris.Line({
+	element: 'explicitTests',
+	hideHover: 'auto',
+	data: data,
+	xkey: 'size',
+	ykeys: ['solver1explicitTests', 'solver2explicitTests'],
+	labels: ['Uber brute-force', 'List brute-force'],
+	resize: true,
+	parseTime: false,
+	lineColors: ['#A52A2A', '#72A0C1'],
+	yLabelFormat: function(y) { return y.toLocaleString(); },
+	xLabelFormat: function(obj) { return (obj.x + 1).toLocaleString(); },
+});
+var implicitTestsGraph = Morris.Line({
+	element: 'implicitTests',
+	hideHover: 'auto',
+	data: data,
+	xkey: 'size',
+	ykeys: ['solver1implicitTests', 'solver2implicitTests'],
+	labels: ['Uber brute-force', 'List brute-force'],
+	resize: true,
+	parseTime: false,
+	lineColors: ['#A52A2A', '#72A0C1'],
+	yLabelFormat: function(y) { return y.toLocaleString(); },
+	xLabelFormat: function(obj) { return (obj.x + 1).toLocaleString(); },
+});
+
+</script>
+
+All benchmarked operations with the uber-brute-force algorithm became huge very quickly and the speed up of only placing a maximum of N queens on a NxN chessboard is amazing!
 
 ## Next optimisations?
 
