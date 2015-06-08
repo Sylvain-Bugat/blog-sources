@@ -366,10 +366,10 @@ Comparison of theses 2 algorithms:
 			<i class="fa fa-signal"></i>Algorithms comparison
 		</h3>
 		<ul class="nav nav-tabs">
-			<li>
+			<li class="active">
 				<a href="#prefix2queenPlacementsTab" data-toggle="tab" data-identifier="prefix2queenPlacementsGraph">moves</a>
 			</li>
-			<li class="active">
+			<li>
 				<a href="#prefix2methodCallsTab" data-toggle="tab" data-identifier="prefix2methodCallsGraph">method calls</a>
 			</li>
 			<li>
@@ -385,7 +385,7 @@ Comparison of theses 2 algorithms:
 	</div>
 	<div class="panel-body">
 		<div class="tab-content">
-			<div id="prefix2queenPlacementsTab" class="tab-pane">
+			<div id="prefix2queenPlacementsTab" class="tab-pane active">
 				<div class="row">
 					<div class="caption">
 						Queen placements count
@@ -397,7 +397,7 @@ Comparison of theses 2 algorithms:
 					</div>
 				</div>
 			</div>
-			<div id="prefix2methodCallsTab" class="tab-pane active">
+			<div id="prefix2methodCallsTab" class="tab-pane">
 				<div class="row">
 					<div class="caption">
 						Method calls count
@@ -462,14 +462,16 @@ $('ul.nav a').on('shown.bs.tab', function (e) {
 
 //Data
 var prefix2data = [
-	{"size": "1", "solver1queenPlacements": 1,  "solver1methodCalls": 19,  "solver1squareReads": 4,  "solver1explicitTests": 16,  "solver1implicitTests": 17,  "solver2queenPlacements": 1,  "solver2methodCalls": 3,  "solver2squareReads": 4,  "solver2explicitTests": 16,  "solver2implicitTests": 17},
-	{"size": "2", "solver1queenPlacements": 10,  "solver1methodCalls": 194,  "solver1squareReads": 46,  "solver1explicitTests": 135,  "solver1implicitTests": 110,  "solver2queenPlacements": 10,  "solver2methodCalls": 16,  "solver2squareReads": 46,  "solver2explicitTests": 135,  "solver2implicitTests": 110},
-	{"size": "3", "solver1queenPlacements": 129,  "solver1methodCalls": 3111,  "solver1squareReads": 794,  "solver1explicitTests": 1734,  "solver1implicitTests": 1496,  "solver2queenPlacements": 129,  "solver2methodCalls": 213,  "solver2squareReads": 794,  "solver2explicitTests": 1734,  "solver2implicitTests": 1496},
-	{"size": "4", "solver1queenPlacements": 2516,  "solver1methodCalls": 75974,  "solver1squareReads": 20524,  "solver1explicitTests": 36361,  "solver1implicitTests": 33517,  "solver2queenPlacements": 2516,  "solver2methodCalls": 4338,  "solver2squareReads": 20524,  "solver2explicitTests": 36361,  "solver2implicitTests": 33517},
-	{"size": "5", "solver1queenPlacements": 68405,  "solver1methodCalls": 2569409,  "solver1squareReads": 724748,  "solver1explicitTests": 1135966,  "solver1implicitTests": 1091183,  "solver2queenPlacements": 68405,  "solver2methodCalls": 121545,  "solver2squareReads": 724748,  "solver2explicitTests": 1135966,  "solver2implicitTests": 1091183},
-	{"size": "6", "solver1queenPlacements": 2391495,  "solver1methodCalls": 109575700,  "solver1squareReads": 31890143,  "solver1explicitTests": 46172015,  "solver1implicitTests": 45473931,  "solver2queenPlacements": 2391495,  "solver2methodCalls": 4339291,  "solver2squareReads": 31890143,  "solver2explicitTests": 46172015,  "solver2implicitTests": 45473931},
-	{"size": "7", "solver1queenPlacements": 102022809,  "solver1methodCalls": 5578385347,  "solver1squareReads": 1660790226,  "solver1explicitTests": 2272813395,  "solver1implicitTests": 2273998451,  "solver2queenPlacements": 102022809,  "solver2methodCalls": 187923433,  "solver2squareReads": 1660790226,  "solver2explicitTests": 2272813395,  "solver2implicitTests": 2273998451}
+	{"size": "1", "solver1queenPlacements": 0.0,  "solver1methodCalls": 1.2787536009528289,  "solver1squareReads": 0.6020599913279624,  "solver1explicitTests": 1.2041199826559248,  "solver1implicitTests": 1.2304489213782739,  "solver2queenPlacements": 0.0,  "solver2methodCalls": 0.47712125471966244,  "solver2squareReads": 0.6020599913279624,  "solver2explicitTests": 1.2041199826559248,  "solver2implicitTests": 1.2304489213782739},
+	{"size": "2", "solver1queenPlacements": 1.0,  "solver1methodCalls": 2.287801729930226,  "solver1squareReads": 1.662757831681574,  "solver1explicitTests": 2.130333768495006,  "solver1implicitTests": 2.041392685158225,  "solver2queenPlacements": 1.0,  "solver2methodCalls": 1.2041199826559248,  "solver2squareReads": 1.662757831681574,  "solver2explicitTests": 2.130333768495006,  "solver2implicitTests": 2.041392685158225},
+	{"size": "3", "solver1queenPlacements": 2.110589710299249,  "solver1methodCalls": 3.4929000111087034,  "solver1squareReads": 2.8998205024270964,  "solver1explicitTests": 3.2390490931401916,  "solver1implicitTests": 3.1749315935284423,  "solver2queenPlacements": 2.110589710299249,  "solver2methodCalls": 2.3283796034387376,  "solver2squareReads": 2.8998205024270964,  "solver2explicitTests": 3.2390490931401916,  "solver2implicitTests": 3.1749315935284423},
+	{"size": "4", "solver1queenPlacements": 3.400710636773231,  "solver1methodCalls": 4.880664992432927,  "solver1squareReads": 4.312262005983347,  "solver1explicitTests": 4.560635818678364,  "solver1implicitTests": 4.525265139380899,  "solver2queenPlacements": 3.400710636773231,  "solver2methodCalls": 3.6372895476781744,  "solver2squareReads": 4.312262005983347,  "solver2explicitTests": 4.560635818678364,  "solver2implicitTests": 4.525265139380899},
+	{"size": "5", "solver1queenPlacements": 4.8350878472324945,  "solver1methodCalls": 6.409833241014112,  "solver1squareReads": 5.860187025558374,  "solver1explicitTests": 6.055365332930141,  "solver1implicitTests": 6.037897591308276,  "solver2queenPlacements": 4.8350878472324945,  "solver2methodCalls": 5.084737097962795,  "solver2squareReads": 5.860187025558374,  "solver2explicitTests": 6.055365332930141,  "solver2implicitTests": 6.037897591308276},
+	{"size": "6", "solver1queenPlacements": 6.378669477211044,  "solver1methodCalls": 8.03971425372861,  "solver1squareReads": 7.503656466686411,  "solver1explicitTests": 7.664378828076926,  "solver1implicitTests": 7.657762498472013,  "solver2queenPlacements": 6.378669477211044,  "solver2methodCalls": 6.6374187756089364,  "solver2squareReads": 7.503656466686411,  "solver2explicitTests": 7.664378828076926,  "solver2implicitTests": 7.657762498472013},
+	{"size": "7", "solver1queenPlacements": 8.008697276815294,  "solver1methodCalls": 9.746508511417176,  "solver1squareReads": 9.220314780287609,  "solver1explicitTests": 9.356563780270248,  "solver1implicitTests": 9.356790164519534,  "solver2queenPlacements": 8.008697276815294,  "solver2methodCalls": 8.273980937567645,  "solver2squareReads": 9.220314780287609,  "solver2explicitTests": 9.356563780270248,  "solver2implicitTests": 9.356790164519534}
 	];
+//Data
+var prefix2logData = { "8.008697276815294": 102022809,  "1.2787536009528289": 19,  "0.0": 1,  "9.356790164519534": 2273998451,  "4.880664992432927": 75974,  "4.312262005983347": 20524,  "9.746508511417176": 5578385347,  "1.0": 10,  "0.6020599913279624": 4,  "6.378669477211044": 2391495,  "6.055365332930141": 1135966,  "2.110589710299249": 129,  "6.409833241014112": 2569409,  "8.03971425372861": 109575700,  "9.220314780287609": 1660790226,  "7.664378828076926": 46172015,  "4.525265139380899": 33517,  "2.130333768495006": 135,  "2.8998205024270964": 794,  "1.2041199826559248": 16,  "5.084737097962795": 121545,  "8.273980937567645": 187923433,  "6.6374187756089364": 4339291,  "2.287801729930226": 194,  "9.356563780270248": 2272813395,  "3.1749315935284423": 1496,  "4.8350878472324945": 68405,  "4.560635818678364": 36361,  "6.037897591308276": 1091183,  "5.860187025558374": 724748,  "7.657762498472013": 45473931,  "3.400710636773231": 2516,  "2.3283796034387376": 213,  "3.4929000111087034": 3111,  "3.6372895476781744": 4338,  "7.503656466686411": 31890143,  "2.041392685158225": 110,  "1.662757831681574": 46,  "0.47712125471966244": 3,  "1.2304489213782739": 17,  "3.2390490931401916": 1734	};
 var prefix2queenPlacementsGraph = Morris.Line({
 	element: 'prefix2queenPlacements',
 	hideHover: 'auto',
@@ -480,7 +482,7 @@ var prefix2queenPlacementsGraph = Morris.Line({
 	resize: true,
 	parseTime: false,
 	lineColors: ['#A52A2A', '#72A0C1'],
-	yLabelFormat: function(y) { return y.toLocaleString(); },
+	yLabelFormat: function(y) { if( prefix2logData[y] ) { return prefix2logData[y].toLocaleString(); } else { if( 0 == y ) { return 0; } var n=1;for (var i = 0; i < y; i++) { n*=10; } return n.toLocaleString();} },
 	xLabelFormat: function(obj) { return (obj.x + 1).toLocaleString(); },
 });
 var prefix2methodCallsGraph = Morris.Line({
@@ -493,7 +495,7 @@ var prefix2methodCallsGraph = Morris.Line({
 	resize: true,
 	parseTime: false,
 	lineColors: ['#A52A2A', '#72A0C1'],
-	yLabelFormat: function(y) { return y.toLocaleString(); },
+	yLabelFormat: function(y) { if( prefix2logData[y] ) { return prefix2logData[y].toLocaleString(); } else { if( 0 == y ) { return 0; } var n=1;for (var i = 0; i < y; i++) { n*=10; } return n.toLocaleString();} },
 	xLabelFormat: function(obj) { return (obj.x + 1).toLocaleString(); },
 });
 var prefix2squareReadsGraph = Morris.Line({
@@ -506,7 +508,7 @@ var prefix2squareReadsGraph = Morris.Line({
 	resize: true,
 	parseTime: false,
 	lineColors: ['#A52A2A', '#72A0C1'],
-	yLabelFormat: function(y) { return y.toLocaleString(); },
+	yLabelFormat: function(y) { if( prefix2logData[y] ) { return prefix2logData[y].toLocaleString(); } else { if( 0 == y ) { return 0; } var n=1;for (var i = 0; i < y; i++) { n*=10; } return n.toLocaleString();} },
 	xLabelFormat: function(obj) { return (obj.x + 1).toLocaleString(); },
 });
 var prefix2explicitTestsGraph = Morris.Line({
@@ -519,7 +521,7 @@ var prefix2explicitTestsGraph = Morris.Line({
 	resize: true,
 	parseTime: false,
 	lineColors: ['#A52A2A', '#72A0C1'],
-	yLabelFormat: function(y) { return y.toLocaleString(); },
+	yLabelFormat: function(y) { if( prefix2logData[y] ) { return prefix2logData[y].toLocaleString(); } else { if( 0 == y ) { return 0; } var n=1;for (var i = 0; i < y; i++) { n*=10; } return n.toLocaleString();} },
 	xLabelFormat: function(obj) { return (obj.x + 1).toLocaleString(); },
 });
 var prefix2implicitTestsGraph = Morris.Line({
@@ -532,7 +534,7 @@ var prefix2implicitTestsGraph = Morris.Line({
 	resize: true,
 	parseTime: false,
 	lineColors: ['#A52A2A', '#72A0C1'],
-	yLabelFormat: function(y) { return y.toLocaleString(); },
+	yLabelFormat: function(y) { if( prefix2logData[y] ) { return prefix2logData[y].toLocaleString(); } else { if( 0 == y ) { return 0; } var n=1;for (var i = 0; i < y; i++) { n*=10; } return n.toLocaleString();} },
 	xLabelFormat: function(obj) { return (obj.x + 1).toLocaleString(); },
 });
 
