@@ -99,82 +99,82 @@ Comparison of the previous and this algorithm:
 <div class="panel panel-default tab-box">
 	<div class="panel-heading">
 		<h3 class="panel-title">
-			<i class="fa fa-signal"></i>Algorithms comparison
+			<i class="glyphicon glyphicon-stats"></i>Algorithms comparison
 		</h3>
 		<ul class="nav nav-tabs">
 			<li>
-				<a href="#prefix1queenPlacementsTab" data-toggle="tab" data-identifier="prefix1queenPlacementsGraph">moves</a>
-			</li>
-			<li class="active">
-				<a href="#prefix1methodCallsTab" data-toggle="tab" data-identifier="prefix1methodCallsGraph">method calls</a>
+				<a href="#prefixqueenPlacementsTab" data-toggle="tab" data-identifier="prefixqueenPlacementsGraph">moves</a>
 			</li>
 			<li>
-				<a href="#prefix1squareReadsTab" data-toggle="tab" data-identifier="prefix1squareReadsGraph">reads</a>
+				<a href="#prefixmethodCallsTab" data-toggle="tab" data-identifier="prefixmethodCallsGraph">method calls</a>
+			</li>
+			<li  class="active">
+				<a href="#prefixsquareReadsTab" data-toggle="tab" data-identifier="prefixsquareReadsGraph">reads</a>
 			</li>
 			<li>
-				<a href="#prefix1explicitTestsTab" data-toggle="tab" data-identifier="prefix1explicitTestsGraph">tests</a>
+				<a href="#prefixexplicitTestsTab" data-toggle="tab" data-identifier="prefixexplicitTestsGraph">tests</a>
 			</li>
 			<li>
-				<a href="#prefix1implicitTestsTab" data-toggle="tab" data-identifier="prefix1implicitTestsGraph">loop tests</a>
+				<a href="#prefiximplicitTestsTab" data-toggle="tab" data-identifier="prefiximplicitTestsGraph">loop tests</a>
 			</li>
 		</ul>
 	</div>
 	<div class="panel-body">
 		<div class="tab-content">
-			<div id="prefix1queenPlacementsTab" class="tab-pane">
+			<div id="prefixqueenPlacementsTab" class="tab-pane">
 				<div class="row">
 					<div class="caption">
 						Queen placements count
 					</div>
-					<div id="prefix1queenPlacements"></div>
+					<div id="prefixqueenPlacements"></div>
 					<div class="legend">
 						<span class="label" style="background-color: #A52A2A;">List brute-force</span>
 						<span class="label" style="background-color: #72A0C1;">Queen constraint brute-force</span>
 					</div>
 				</div>
 			</div>
-			<div id="prefix1methodCallsTab" class="tab-pane active">
+			<div id="prefixmethodCallsTab" class="tab-pane">
 				<div class="row">
 					<div class="caption">
 						Method calls count
 					</div>
-					<div id="prefix1methodCalls"></div>
+					<div id="prefixmethodCalls"></div>
 					<div class="legend">
 						<span class="label" style="background-color: #A52A2A;">List brute-force</span>
 						<span class="label" style="background-color: #72A0C1;">Queen constraint brute-force</span>
 					</div>
 				</div>
 			</div>
-			<div id="prefix1squareReadsTab" class="tab-pane">
+			<div id="prefixsquareReadsTab" class="tab-pane active">
 				<div class="row">
 					<div class="caption">
 						Square reads count
 					</div>
-					<div id="prefix1squareReads"></div>
+					<div id="prefixsquareReads"></div>
 					<div class="legend">
 						<span class="label" style="background-color: #A52A2A;">List brute-force</span>
 						<span class="label" style="background-color: #72A0C1;">Queen constraint brute-force</span>
 					</div>
 				</div>
 			</div>
-			<div id="prefix1explicitTestsTab" class="tab-pane">
+			<div id="prefixexplicitTestsTab" class="tab-pane">
 				<div class="row">
 					<div class="caption">
 						Explicit tests count
 					</div>
-					<div id="prefix1explicitTests"></div>
+					<div id="prefixexplicitTests"></div>
 					<div class="legend">
 						<span class="label" style="background-color: #A52A2A;">List brute-force</span>
 						<span class="label" style="background-color: #72A0C1;">Queen constraint brute-force</span>
 					</div>
 				</div>
 			</div>
-			<div id="prefix1implicitTestsTab" class="tab-pane">
+			<div id="prefiximplicitTestsTab" class="tab-pane">
 				<div class="row">
 					<div class="caption">
 						Loop tests count
 					</div>
-					<div id="prefix1implicitTests"></div>
+					<div id="prefiximplicitTests"></div>
 					<div class="legend">
 						<span class="label" style="background-color: #A52A2A;">List brute-force</span>
 						<span class="label" style="background-color: #72A0C1;">Queen constraint brute-force</span>
@@ -197,79 +197,81 @@ $('ul.nav a').on('shown.bs.tab', function (e) {
 });
 
 //Data
-var prefix1data = [
-	{"size": "1", "solver1queenPlacements": 1,  "solver1methodCalls": 23,  "solver1squareReads": 5,  "solver1explicitTests": 17,  "solver1implicitTests": 21,  "solver2queenPlacements": 1,  "solver2methodCalls": 19,  "solver2squareReads": 4,  "solver2explicitTests": 16,  "solver2implicitTests": 17},
-	{"size": "2", "solver1queenPlacements": 10,  "solver1methodCalls": 324,  "solver1squareReads": 86,  "solver1explicitTests": 175,  "solver1implicitTests": 200,  "solver2queenPlacements": 10,  "solver2methodCalls": 194,  "solver2squareReads": 46,  "solver2explicitTests": 135,  "solver2implicitTests": 110},
-	{"size": "3", "solver1queenPlacements": 129,  "solver1methodCalls": 6723,  "solver1squareReads": 1955,  "solver1explicitTests": 2895,  "solver1implicitTests": 3560,  "solver2queenPlacements": 129,  "solver2methodCalls": 3111,  "solver2squareReads": 794,  "solver2explicitTests": 1734,  "solver2implicitTests": 1496},
-	{"size": "4", "solver1queenPlacements": 2516,  "solver1methodCalls": 199258,  "solver1squareReads": 60780,  "solver1explicitTests": 76617,  "solver1implicitTests": 96417,  "solver2queenPlacements": 2516,  "solver2methodCalls": 75974,  "solver2squareReads": 20524,  "solver2explicitTests": 36361,  "solver2implicitTests": 33517},
-	{"size": "5", "solver1queenPlacements": 68405,  "solver1methodCalls": 7768189,  "solver1squareReads": 2434873,  "solver1explicitTests": 2846091,  "solver1implicitTests": 3553763,  "solver2queenPlacements": 68405,  "solver2methodCalls": 2569409,  "solver2squareReads": 724748,  "solver2explicitTests": 1135966,  "solver2implicitTests": 1091183},
-	{"size": "6", "solver1queenPlacements": 2391495,  "solver1methodCalls": 370248655,  "solver1squareReads": 117983963,  "solver1explicitTests": 132265835,  "solver1implicitTests": 162657186,  "solver2queenPlacements": 2391495,  "solver2methodCalls": 109575700,  "solver2squareReads": 31890143,  "solver2explicitTests": 46172015,  "solver2implicitTests": 45473931},
-	{"size": "7", "solver1queenPlacements": 102022809,  "solver1methodCalls": 20677761079,  "solver1squareReads": 6659907867,  "solver1explicitTests": 7271931036,  "solver1implicitTests": 8803458227,  "solver2queenPlacements": 102022809,  "solver2methodCalls": 5578385347,  "solver2squareReads": 1660790226,  "solver2explicitTests": 2272813395,  "solver2implicitTests": 2273998451},
-	{"size": "8", "solver1queenPlacements": 5130659560,  "solver1methodCalls": 1318173704582,  "solver1squareReads": 427654527254,  "solver1explicitTests": 458618310305,  "solver1implicitTests": 547241304569,  "solver2queenPlacements": 5130659560,  "solver2methodCalls": 327956409502,  "solver2squareReads": 99292315414,  "solver2explicitTests": 130256098465,  "solver2implicitTests": 131657880209}
+var prefixdata = [
+	{"size": "1", "solver1queenPlacements": 0.1,  "solver1methodCalls": 1.3617278360175928,  "solver1squareReads": 0.6989700043360189,  "solver1explicitTests": 1.2304489213782739,  "solver1implicitTests": 1.3222192947339193,  "solver2queenPlacements": 0.1,  "solver2methodCalls": 1.2787536009528289,  "solver2squareReads": 0.6020599913279624,  "solver2explicitTests": 1.2041199826559248,  "solver2implicitTests": 1.2304489213782739},
+	{"size": "2", "solver1queenPlacements": 1.0,  "solver1methodCalls": 2.510545010206612,  "solver1squareReads": 1.9344984512435677,  "solver1explicitTests": 2.2430380486862944,  "solver1implicitTests": 2.3010299956639813,  "solver2queenPlacements": 1.0,  "solver2methodCalls": 2.287801729930226,  "solver2squareReads": 1.662757831681574,  "solver2explicitTests": 2.130333768495006,  "solver2implicitTests": 2.041392685158225},
+	{"size": "3", "solver1queenPlacements": 2.110589710299249,  "solver1methodCalls": 3.8275631112547237,  "solver1squareReads": 3.2911467617318855,  "solver1explicitTests": 3.4616485680634552,  "solver1implicitTests": 3.5514499979728753,  "solver2queenPlacements": 2.110589710299249,  "solver2methodCalls": 3.4929000111087034,  "solver2squareReads": 2.8998205024270964,  "solver2explicitTests": 3.2390490931401916,  "solver2implicitTests": 3.1749315935284423},
+	{"size": "4", "solver1queenPlacements": 3.400710636773231,  "solver1methodCalls": 5.299415766886762,  "solver1squareReads": 4.783760695743924,  "solver1explicitTests": 4.884325142831696,  "solver1implicitTests": 4.9841536143517695,  "solver2queenPlacements": 3.400710636773231,  "solver2methodCalls": 4.880664992432927,  "solver2squareReads": 4.312262005983347,  "solver2explicitTests": 4.560635818678364,  "solver2implicitTests": 4.525265139380899},
+	{"size": "5", "solver1queenPlacements": 4.8350878472324945,  "solver1methodCalls": 6.8903197834110905,  "solver1squareReads": 6.386476313871969,  "solver1explicitTests": 6.4542487819626135,  "solver1implicitTests": 6.550688461391552,  "solver2queenPlacements": 4.8350878472324945,  "solver2methodCalls": 6.409833241014112,  "solver2squareReads": 5.860187025558374,  "solver2explicitTests": 6.055365332930141,  "solver2implicitTests": 6.037897591308276},
+	{"size": "6", "solver1queenPlacements": 6.378669477211044,  "solver1methodCalls": 8.568493489537232,  "solver1squareReads": 8.07182297973045,  "solver1explicitTests": 8.121447677995999,  "solver1implicitTests": 8.211273254652662,  "solver2queenPlacements": 6.378669477211044,  "solver2methodCalls": 8.03971425372861,  "solver2squareReads": 7.503656466686411,  "solver2explicitTests": 7.664378828076926,  "solver2implicitTests": 7.657762498472013},
+	{"size": "7", "solver1queenPlacements": 8.008697276815294,  "solver1methodCalls": 10.315503512967584,  "solver1squareReads": 9.823468221192783,  "solver1explicitTests": 9.861649751563379,  "solver1implicitTests": 9.944653307817687,  "solver2queenPlacements": 8.008697276815294,  "solver2methodCalls": 9.746508511417176,  "solver2squareReads": 9.220314780287609,  "solver2explicitTests": 9.356563780270248,  "solver2implicitTests": 9.356790164519534},
+	{"size": "8", "solver1queenPlacements": 9.710173198417113,  "solver1methodCalls": 12.119972643923148,  "solver1squareReads": 11.631093073935638,  "solver1explicitTests": 11.66145138991786,  "solver1implicitTests": 11.738178869540649,  "solver2queenPlacements": 9.710173198417113,  "solver2methodCalls": 11.515816123068971,  "solver2squareReads": 10.996915638198928,  "solver2explicitTests": 11.114798065696673,  "solver2implicitTests": 11.119446858344201}
 	];
-var prefix1queenPlacementsGraph = Morris.Line({
-	element: 'prefix1queenPlacements',
+//Data
+var prefixlogData = { "0.1": 1,  "1.2787536009528289": 19,  "8.121447677995999": 132265835,  "4.312262005983347": 20524,  "6.386476313871969": 2434873,  "9.746508511417176": 5578385347,  "9.710173198417113": 5130659560,  "0.6020599913279624": 4,  "11.114798065696673": 130256098465,  "6.055365332930141": 1135966,  "6.378669477211044": 2391495,  "11.515816123068971": 327956409502,  "8.568493489537232": 370248655,  "8.211273254652662": 162657186,  "4.884325142831696": 76617,  "7.664378828076926": 46172015,  "4.525265139380899": 33517,  "6.550688461391552": 3553763,  "2.8998205024270964": 794,  "9.944653307817687": 8803458227,  "4.783760695743924": 60780,  "1.3222192947339193": 21,  "1.2041199826559248": 16,  "2.287801729930226": 194,  "12.119972643923148": 1318173704582,  "1.9344984512435677": 86,  "4.8350878472324945": 68405,  "4.560635818678364": 36361,  "6.037897591308276": 1091183,  "5.860187025558374": 724748,  "11.738178869540649": 547241304569,  "3.400710636773231": 2516,  "11.66145138991786": 458618310305,  "3.2911467617318855": 1955,  "3.4616485680634552": 2895,  "6.4542487819626135": 2846091,  "7.503656466686411": 31890143,  "1.3617278360175928": 23,  "2.041392685158225": 110,  "1.662757831681574": 46,  "5.299415766886762": 199258,  "1.2304489213782739": 17,  "2.510545010206612": 324,  "8.008697276815294": 102022809,  "9.356790164519534": 2273998451,  "9.861649751563379": 7271931036,  "4.880664992432927": 75974,  "1": 10,  "3.8275631112547237": 6723,  "10.996915638198928": 99292315414,  "2.110589710299249": 129,  "4.9841536143517695": 96417,  "6.409833241014112": 2569409,  "8.03971425372861": 109575700,  "9.220314780287609": 1660790226,  "10.315503512967584": 20677761079,  "11.119446858344201": 131657880209,  "2.130333768495006": 135,  "11.631093073935638": 427654527254,  "9.356563780270248": 2272813395,  "6.8903197834110905": 7768189,  "3.1749315935284423": 1496,  "7.657762498472013": 45473931,  "9.823468221192783": 6659907867,  "2.3010299956639813": 200,  "3.4929000111087034": 3111,  "0.6989700043360189": 5,  "8.07182297973045": 117983963,  "3.5514499979728753": 3560,  "2.2430380486862944": 175,  "3.2390490931401916": 1734	};
+var prefixqueenPlacementsGraph = Morris.Line({
+	element: 'prefixqueenPlacements',
 	hideHover: 'auto',
-	data: prefix1data,
+	data: prefixdata,
 	xkey: 'size',
 	ykeys: ['solver1queenPlacements', 'solver2queenPlacements'],
 	labels: ['List brute-force', 'Queen constraint brute-force'],
 	resize: true,
 	parseTime: false,
 	lineColors: ['#A52A2A', '#72A0C1'],
-	yLabelFormat: function(y) { return y.toLocaleString(); },
+	yLabelFormat: function(y) { if( prefixlogData[y] ) { return prefixlogData[y].toLocaleString(); } else { if( 0 == y ) { return 0; } return "10^" + y;} },
 	xLabelFormat: function(obj) { return (obj.x + 1).toLocaleString(); },
 });
-var prefix1methodCallsGraph = Morris.Line({
-	element: 'prefix1methodCalls',
+var prefixmethodCallsGraph = Morris.Line({
+	element: 'prefixmethodCalls',
 	hideHover: 'auto',
-	data: prefix1data,
+	data: prefixdata,
 	xkey: 'size',
 	ykeys: ['solver1methodCalls', 'solver2methodCalls'],
 	labels: ['List brute-force', 'Queen constraint brute-force'],
 	resize: true,
 	parseTime: false,
 	lineColors: ['#A52A2A', '#72A0C1'],
-	yLabelFormat: function(y) { return y.toLocaleString(); },
+	yLabelFormat: function(y) { if( prefixlogData[y] ) { return prefixlogData[y].toLocaleString(); } else { if( 0 == y ) { return 0; } return "10^" + y;} },
 	xLabelFormat: function(obj) { return (obj.x + 1).toLocaleString(); },
 });
-var prefix1squareReadsGraph = Morris.Line({
-	element: 'prefix1squareReads',
+var prefixsquareReadsGraph = Morris.Line({
+	element: 'prefixsquareReads',
 	hideHover: 'auto',
-	data: prefix1data,
+	data: prefixdata,
 	xkey: 'size',
 	ykeys: ['solver1squareReads', 'solver2squareReads'],
 	labels: ['List brute-force', 'Queen constraint brute-force'],
 	resize: true,
 	parseTime: false,
 	lineColors: ['#A52A2A', '#72A0C1'],
-	yLabelFormat: function(y) { return y.toLocaleString(); },
+	yLabelFormat: function(y) { if( prefixlogData[y] ) { return prefixlogData[y].toLocaleString(); } else { if( 0 == y ) { return 0; } return "10^" + y;} },
 	xLabelFormat: function(obj) { return (obj.x + 1).toLocaleString(); },
 });
-var prefix1explicitTestsGraph = Morris.Line({
-	element: 'prefix1explicitTests',
+var prefixexplicitTestsGraph = Morris.Line({
+	element: 'prefixexplicitTests',
 	hideHover: 'auto',
-	data: prefix1data,
+	data: prefixdata,
 	xkey: 'size',
 	ykeys: ['solver1explicitTests', 'solver2explicitTests'],
 	labels: ['List brute-force', 'Queen constraint brute-force'],
 	resize: true,
 	parseTime: false,
 	lineColors: ['#A52A2A', '#72A0C1'],
-	yLabelFormat: function(y) { return y.toLocaleString(); },
+	yLabelFormat: function(y) { if( prefixlogData[y] ) { return prefixlogData[y].toLocaleString(); } else { if( 0 == y ) { return 0; } return "10^" + y;} },
 	xLabelFormat: function(obj) { return (obj.x + 1).toLocaleString(); },
 });
-var prefix1implicitTestsGraph = Morris.Line({
-	element: 'prefix1implicitTests',
+var prefiximplicitTestsGraph = Morris.Line({
+	element: 'prefiximplicitTests',
 	hideHover: 'auto',
-	data: prefix1data,
+	data: prefixdata,
 	xkey: 'size',
 	ykeys: ['solver1implicitTests', 'solver2implicitTests'],
 	labels: ['List brute-force', 'Queen constraint brute-force'],
 	resize: true,
 	parseTime: false,
 	lineColors: ['#A52A2A', '#72A0C1'],
-	yLabelFormat: function(y) { return y.toLocaleString(); },
+	yLabelFormat: function(y) { if( prefixlogData[y] ) { return prefixlogData[y].toLocaleString(); } else { if( 0 == y ) { return 0; } return "10^" + y;} },
 	xLabelFormat: function(obj) { return (obj.x + 1).toLocaleString(); },
 });
 
@@ -363,13 +365,13 @@ Comparison of theses 2 algorithms:
 <div class="panel panel-default tab-box">
 	<div class="panel-heading">
 		<h3 class="panel-title">
-			<i class="fa fa-signal"></i>Algorithms comparison
+			<i class="glyphicon glyphicon-stats"></i>Algorithms comparison
 		</h3>
 		<ul class="nav nav-tabs">
-			<li class="active">
+			<li>
 				<a href="#prefix2queenPlacementsTab" data-toggle="tab" data-identifier="prefix2queenPlacementsGraph">moves</a>
 			</li>
-			<li>
+			<li class="active">
 				<a href="#prefix2methodCallsTab" data-toggle="tab" data-identifier="prefix2methodCallsGraph">method calls</a>
 			</li>
 			<li>
@@ -385,7 +387,7 @@ Comparison of theses 2 algorithms:
 	</div>
 	<div class="panel-body">
 		<div class="tab-content">
-			<div id="prefix2queenPlacementsTab" class="tab-pane active">
+			<div id="prefix2queenPlacementsTab" class="tab-pane">
 				<div class="row">
 					<div class="caption">
 						Queen placements count
@@ -397,7 +399,7 @@ Comparison of theses 2 algorithms:
 					</div>
 				</div>
 			</div>
-			<div id="prefix2methodCallsTab" class="tab-pane">
+			<div id="prefix2methodCallsTab" class="tab-pane active">
 				<div class="row">
 					<div class="caption">
 						Method calls count
@@ -462,16 +464,17 @@ $('ul.nav a').on('shown.bs.tab', function (e) {
 
 //Data
 var prefix2data = [
-	{"size": "1", "solver1queenPlacements": 0.0,  "solver1methodCalls": 1.2787536009528289,  "solver1squareReads": 0.6020599913279624,  "solver1explicitTests": 1.2041199826559248,  "solver1implicitTests": 1.2304489213782739,  "solver2queenPlacements": 0.0,  "solver2methodCalls": 0.47712125471966244,  "solver2squareReads": 0.6020599913279624,  "solver2explicitTests": 1.2041199826559248,  "solver2implicitTests": 1.2304489213782739},
+	{"size": "1", "solver1queenPlacements": 0.1,  "solver1methodCalls": 1.2787536009528289,  "solver1squareReads": 0.6020599913279624,  "solver1explicitTests": 1.2041199826559248,  "solver1implicitTests": 1.2304489213782739,  "solver2queenPlacements": 0.1,  "solver2methodCalls": 0.47712125471966244,  "solver2squareReads": 0.6020599913279624,  "solver2explicitTests": 1.2041199826559248,  "solver2implicitTests": 1.2304489213782739},
 	{"size": "2", "solver1queenPlacements": 1.0,  "solver1methodCalls": 2.287801729930226,  "solver1squareReads": 1.662757831681574,  "solver1explicitTests": 2.130333768495006,  "solver1implicitTests": 2.041392685158225,  "solver2queenPlacements": 1.0,  "solver2methodCalls": 1.2041199826559248,  "solver2squareReads": 1.662757831681574,  "solver2explicitTests": 2.130333768495006,  "solver2implicitTests": 2.041392685158225},
 	{"size": "3", "solver1queenPlacements": 2.110589710299249,  "solver1methodCalls": 3.4929000111087034,  "solver1squareReads": 2.8998205024270964,  "solver1explicitTests": 3.2390490931401916,  "solver1implicitTests": 3.1749315935284423,  "solver2queenPlacements": 2.110589710299249,  "solver2methodCalls": 2.3283796034387376,  "solver2squareReads": 2.8998205024270964,  "solver2explicitTests": 3.2390490931401916,  "solver2implicitTests": 3.1749315935284423},
 	{"size": "4", "solver1queenPlacements": 3.400710636773231,  "solver1methodCalls": 4.880664992432927,  "solver1squareReads": 4.312262005983347,  "solver1explicitTests": 4.560635818678364,  "solver1implicitTests": 4.525265139380899,  "solver2queenPlacements": 3.400710636773231,  "solver2methodCalls": 3.6372895476781744,  "solver2squareReads": 4.312262005983347,  "solver2explicitTests": 4.560635818678364,  "solver2implicitTests": 4.525265139380899},
 	{"size": "5", "solver1queenPlacements": 4.8350878472324945,  "solver1methodCalls": 6.409833241014112,  "solver1squareReads": 5.860187025558374,  "solver1explicitTests": 6.055365332930141,  "solver1implicitTests": 6.037897591308276,  "solver2queenPlacements": 4.8350878472324945,  "solver2methodCalls": 5.084737097962795,  "solver2squareReads": 5.860187025558374,  "solver2explicitTests": 6.055365332930141,  "solver2implicitTests": 6.037897591308276},
 	{"size": "6", "solver1queenPlacements": 6.378669477211044,  "solver1methodCalls": 8.03971425372861,  "solver1squareReads": 7.503656466686411,  "solver1explicitTests": 7.664378828076926,  "solver1implicitTests": 7.657762498472013,  "solver2queenPlacements": 6.378669477211044,  "solver2methodCalls": 6.6374187756089364,  "solver2squareReads": 7.503656466686411,  "solver2explicitTests": 7.664378828076926,  "solver2implicitTests": 7.657762498472013},
-	{"size": "7", "solver1queenPlacements": 8.008697276815294,  "solver1methodCalls": 9.746508511417176,  "solver1squareReads": 9.220314780287609,  "solver1explicitTests": 9.356563780270248,  "solver1implicitTests": 9.356790164519534,  "solver2queenPlacements": 8.008697276815294,  "solver2methodCalls": 8.273980937567645,  "solver2squareReads": 9.220314780287609,  "solver2explicitTests": 9.356563780270248,  "solver2implicitTests": 9.356790164519534}
+	{"size": "7", "solver1queenPlacements": 8.008697276815294,  "solver1methodCalls": 9.746508511417176,  "solver1squareReads": 9.220314780287609,  "solver1explicitTests": 9.356563780270248,  "solver1implicitTests": 9.356790164519534,  "solver2queenPlacements": 8.008697276815294,  "solver2methodCalls": 8.273980937567645,  "solver2squareReads": 9.220314780287609,  "solver2explicitTests": 9.356563780270248,  "solver2implicitTests": 9.356790164519534},
+	{"size": "8", "solver1queenPlacements": 9.710173198417113,  "solver1methodCalls": 11.515816123068971,  "solver1squareReads": 10.996915638198928,  "solver1explicitTests": 11.114798065696673,  "solver1implicitTests": 11.119446858344201,  "solver2queenPlacements": 9.710173198417113,  "solver2methodCalls": 9.980313634397985,  "solver2squareReads": 10.996915638198928,  "solver2explicitTests": 11.114798065696673,  "solver2implicitTests": 11.119446858344201}
 	];
 //Data
-var prefix2logData = { "8.008697276815294": 102022809,  "1.2787536009528289": 19,  "0.0": 1,  "9.356790164519534": 2273998451,  "4.880664992432927": 75974,  "4.312262005983347": 20524,  "9.746508511417176": 5578385347,  "1.0": 10,  "0.6020599913279624": 4,  "6.378669477211044": 2391495,  "6.055365332930141": 1135966,  "2.110589710299249": 129,  "6.409833241014112": 2569409,  "8.03971425372861": 109575700,  "9.220314780287609": 1660790226,  "7.664378828076926": 46172015,  "4.525265139380899": 33517,  "2.130333768495006": 135,  "2.8998205024270964": 794,  "1.2041199826559248": 16,  "5.084737097962795": 121545,  "8.273980937567645": 187923433,  "6.6374187756089364": 4339291,  "2.287801729930226": 194,  "9.356563780270248": 2272813395,  "3.1749315935284423": 1496,  "4.8350878472324945": 68405,  "4.560635818678364": 36361,  "6.037897591308276": 1091183,  "5.860187025558374": 724748,  "7.657762498472013": 45473931,  "3.400710636773231": 2516,  "2.3283796034387376": 213,  "3.4929000111087034": 3111,  "3.6372895476781744": 4338,  "7.503656466686411": 31890143,  "2.041392685158225": 110,  "1.662757831681574": 46,  "0.47712125471966244": 3,  "1.2304489213782739": 17,  "3.2390490931401916": 1734	};
+var prefix2logData = { "8.008697276815294": 102022809,  "1.2787536009528289": 19,  "0.1": 1,  "9.356790164519534": 2273998451,  "4.880664992432927": 75974,  "4.312262005983347": 20524,  "9.746508511417176": 5578385347,  "1": 10,  "9.710173198417113": 5130659560,  "0.6020599913279624": 4,  "11.114798065696673": 130256098465,  "10.996915638198928": 99292315414,  "6.378669477211044": 2391495,  "6.055365332930141": 1135966,  "2.110589710299249": 129,  "11.515816123068971": 327956409502,  "6.409833241014112": 2569409,  "8.03971425372861": 109575700,  "9.220314780287609": 1660790226,  "7.664378828076926": 46172015,  "4.525265139380899": 33517,  "11.119446858344201": 131657880209,  "2.130333768495006": 135,  "2.8998205024270964": 794,  "1.2041199826559248": 16,  "5.084737097962795": 121545,  "8.273980937567645": 187923433,  "6.6374187756089364": 4339291,  "9.980313634397985": 9556825020,  "2.287801729930226": 194,  "9.356563780270248": 2272813395,  "3.1749315935284423": 1496,  "4.8350878472324945": 68405,  "4.560635818678364": 36361,  "6.037897591308276": 1091183,  "5.860187025558374": 724748,  "7.657762498472013": 45473931,  "3.400710636773231": 2516,  "2.3283796034387376": 213,  "3.4929000111087034": 3111,  "3.6372895476781744": 4338,  "7.503656466686411": 31890143,  "2.041392685158225": 110,  "1.662757831681574": 46,  "0.47712125471966244": 3,  "1.2304489213782739": 17,  "3.2390490931401916": 1734	};
 var prefix2queenPlacementsGraph = Morris.Line({
 	element: 'prefix2queenPlacements',
 	hideHover: 'auto',
@@ -482,7 +485,7 @@ var prefix2queenPlacementsGraph = Morris.Line({
 	resize: true,
 	parseTime: false,
 	lineColors: ['#A52A2A', '#72A0C1'],
-	yLabelFormat: function(y) { if( prefix2logData[y] ) { return prefix2logData[y].toLocaleString(); } else { if( 0 == y ) { return 0; } var n=1;for (var i = 0; i < y; i++) { n*=10; } return n.toLocaleString();} },
+	yLabelFormat: function(y) { if( prefix2logData[y] ) { return prefix2logData[y].toLocaleString(); } else { if( 0 == y ) { return 0; } return "10^" + y;} },
 	xLabelFormat: function(obj) { return (obj.x + 1).toLocaleString(); },
 });
 var prefix2methodCallsGraph = Morris.Line({
@@ -495,7 +498,7 @@ var prefix2methodCallsGraph = Morris.Line({
 	resize: true,
 	parseTime: false,
 	lineColors: ['#A52A2A', '#72A0C1'],
-	yLabelFormat: function(y) { if( prefix2logData[y] ) { return prefix2logData[y].toLocaleString(); } else { if( 0 == y ) { return 0; } var n=1;for (var i = 0; i < y; i++) { n*=10; } return n.toLocaleString();} },
+	yLabelFormat: function(y) { if( prefix2logData[y] ) { return prefix2logData[y].toLocaleString(); } else { if( 0 == y ) { return 0; } return "10^" + y;} },
 	xLabelFormat: function(obj) { return (obj.x + 1).toLocaleString(); },
 });
 var prefix2squareReadsGraph = Morris.Line({
@@ -508,7 +511,7 @@ var prefix2squareReadsGraph = Morris.Line({
 	resize: true,
 	parseTime: false,
 	lineColors: ['#A52A2A', '#72A0C1'],
-	yLabelFormat: function(y) { if( prefix2logData[y] ) { return prefix2logData[y].toLocaleString(); } else { if( 0 == y ) { return 0; } var n=1;for (var i = 0; i < y; i++) { n*=10; } return n.toLocaleString();} },
+	yLabelFormat: function(y) { if( prefix2logData[y] ) { return prefix2logData[y].toLocaleString(); } else { if( 0 == y ) { return 0; } return "10^" + y;} },
 	xLabelFormat: function(obj) { return (obj.x + 1).toLocaleString(); },
 });
 var prefix2explicitTestsGraph = Morris.Line({
@@ -521,7 +524,7 @@ var prefix2explicitTestsGraph = Morris.Line({
 	resize: true,
 	parseTime: false,
 	lineColors: ['#A52A2A', '#72A0C1'],
-	yLabelFormat: function(y) { if( prefix2logData[y] ) { return prefix2logData[y].toLocaleString(); } else { if( 0 == y ) { return 0; } var n=1;for (var i = 0; i < y; i++) { n*=10; } return n.toLocaleString();} },
+	yLabelFormat: function(y) { if( prefix2logData[y] ) { return prefix2logData[y].toLocaleString(); } else { if( 0 == y ) { return 0; } return "10^" + y;} },
 	xLabelFormat: function(obj) { return (obj.x + 1).toLocaleString(); },
 });
 var prefix2implicitTestsGraph = Morris.Line({
@@ -534,7 +537,7 @@ var prefix2implicitTestsGraph = Morris.Line({
 	resize: true,
 	parseTime: false,
 	lineColors: ['#A52A2A', '#72A0C1'],
-	yLabelFormat: function(y) { if( prefix2logData[y] ) { return prefix2logData[y].toLocaleString(); } else { if( 0 == y ) { return 0; } var n=1;for (var i = 0; i < y; i++) { n*=10; } return n.toLocaleString();} },
+	yLabelFormat: function(y) { if( prefix2logData[y] ) { return prefix2logData[y].toLocaleString(); } else { if( 0 == y ) { return 0; } return "10^" + y;} },
 	xLabelFormat: function(obj) { return (obj.x + 1).toLocaleString(); },
 });
 
