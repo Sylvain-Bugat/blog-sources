@@ -250,7 +250,7 @@ Comparison of theses 2 algorithms:
 <div class="panel panel-default tab-box">
 	<div class="panel-heading">
 		<h3 class="panel-title">
-			<i class="fa fa-signal"></i>Algorithms comparison
+			<i class="glyphicon glyphicon-stats"></i>Algorithms comparison
 		</h3>
 		<ul class="nav nav-tabs">
 			<li class="active">
@@ -349,12 +349,14 @@ $('ul.nav a').on('shown.bs.tab', function (e) {
 
 //Data
 var data = [
-	{"size": "1", "solver1queenPlacements": 1,  "solver1methodCalls": 22,  "solver1squareReads": 5,  "solver1explicitTests": 16,  "solver1implicitTests": 20,  "solver2queenPlacements": 1,  "solver2methodCalls": 23,  "solver2squareReads": 5,  "solver2explicitTests": 17,  "solver2implicitTests": 21},
-	{"size": "2", "solver1queenPlacements": 15,  "solver1methodCalls": 408,  "solver1squareReads": 106,  "solver1explicitTests": 225,  "solver1implicitTests": 236,  "solver2queenPlacements": 10,  "solver2methodCalls": 324,  "solver2squareReads": 86,  "solver2explicitTests": 175,  "solver2implicitTests": 200},
-	{"size": "3", "solver1queenPlacements": 511,  "solver1methodCalls": 19245,  "solver1squareReads": 5393,  "solver1explicitTests": 8277,  "solver1implicitTests": 9534,  "solver2queenPlacements": 129,  "solver2methodCalls": 6723,  "solver2squareReads": 1955,  "solver2explicitTests": 2895,  "solver2implicitTests": 3560},
-	{"size": "4", "solver1queenPlacements": 65531,  "solver1methodCalls": 3600248,  "solver1squareReads": 1069020,  "solver1explicitTests": 1402825,  "solver1implicitTests": 1668602,  "solver2queenPlacements": 2516,  "solver2methodCalls": 199258,  "solver2squareReads": 60780,  "solver2explicitTests": 76617,  "solver2implicitTests": 96417},
-	{"size": "5", "solver1queenPlacements": 33554379,  "solver1methodCalls": 2720078953,  "solver1squareReads": 839584223,  "solver1explicitTests": 1008454787,  "solver1implicitTests": 1208950192,  "solver2queenPlacements": 68405,  "solver2methodCalls": 7768189,  "solver2squareReads": 2434873,  "solver2explicitTests": 2846091,  "solver2implicitTests": 3553763}
+	{"size": "1", "solver1queenPlacements": 0.1,  "solver1methodCalls": 1.3424226808222062,  "solver1squareReads": 0.6989700043360189,  "solver1explicitTests": 1.2041199826559248,  "solver1implicitTests": 1.3010299956639813,  "solver2queenPlacements": 0.1,  "solver2methodCalls": 1.3617278360175928,  "solver2squareReads": 0.6989700043360189,  "solver2explicitTests": 1.2304489213782739,  "solver2implicitTests": 1.3222192947339193},
+	{"size": "2", "solver1queenPlacements": 1.1760912590556813,  "solver1methodCalls": 2.61066016308988,  "solver1squareReads": 2.0253058652647704,  "solver1explicitTests": 2.3521825181113627,  "solver1implicitTests": 2.3729120029701067,  "solver2queenPlacements": 1.0,  "solver2methodCalls": 2.510545010206612,  "solver2squareReads": 1.9344984512435677,  "solver2explicitTests": 2.2430380486862944,  "solver2implicitTests": 2.3010299956639813},
+	{"size": "3", "solver1queenPlacements": 2.708420900134713,  "solver1methodCalls": 4.28431791543061,  "solver1squareReads": 3.7318304202881625,  "solver1explicitTests": 3.917872955198848,  "solver1implicitTests": 3.9792751475910233,  "solver2queenPlacements": 2.110589710299249,  "solver2methodCalls": 3.8275631112547237,  "solver2squareReads": 3.2911467617318855,  "solver2explicitTests": 3.4616485680634552,  "solver2implicitTests": 3.5514499979728753},
+	{"size": "4", "solver1queenPlacements": 4.8164467953202195,  "solver1methodCalls": 6.556332417801133,  "solver1squareReads": 6.028985830380328,  "solver1explicitTests": 6.147003496919546,  "solver1implicitTests": 6.222352759797032,  "solver2queenPlacements": 3.400710636773231,  "solver2methodCalls": 5.299415766886762,  "solver2squareReads": 4.783760695743924,  "solver2explicitTests": 4.884325142831696,  "solver2implicitTests": 4.9841536143517695},
+	{"size": "5", "solver1queenPlacements": 7.525749205620827,  "solver1methodCalls": 9.434581510046916,  "solver1squareReads": 8.924064268966557,  "solver1explicitTests": 9.00365643185312,  "solver1implicitTests": 9.082408408565364,  "solver2queenPlacements": 4.8350878472324945,  "solver2methodCalls": 6.8903197834110905,  "solver2squareReads": 6.386476313871969,  "solver2explicitTests": 6.4542487819626135,  "solver2implicitTests": 6.550688461391552}
 	];
+//Data
+var logData = { "9.00365643185312": 1008454787,  "0.1": 1,  "9.082408408565364": 1208950192,  "6.386476313871969": 2434873,  "1.3424226808222062": 22,  "1": 10,  "2.0253058652647704": 106,  "2.3729120029701067": 236,  "1.1760912590556813": 15,  "3.8275631112547237": 6723,  "2.3521825181113627": 225,  "2.110589710299249": 129,  "4.9841536143517695": 96417,  "4.884325142831696": 76617,  "6.147003496919546": 1402825,  "3.917872955198848": 8277,  "8.924064268966557": 839584223,  "6.556332417801133": 3600248,  "3.9792751475910233": 9534,  "6.550688461391552": 3553763,  "7.525749205620827": 33554379,  "4.783760695743924": 60780,  "1.3222192947339193": 21,  "1.2041199826559248": 16,  "3.7318304202881625": 5393,  "6.028985830380328": 1069020,  "6.8903197834110905": 7768189,  "1.9344984512435677": 86,  "2.708420900134713": 511,  "4.8350878472324945": 68405,  "4.28431791543061": 19245,  "9.434581510046916": 2720078953,  "6.222352759797032": 1668602,  "1.3010299956639813": 20,  "3.400710636773231": 2516,  "2.61066016308988": 408,  "4.8164467953202195": 65531,  "3.2911467617318855": 1955,  "2.3010299956639813": 200,  "6.4542487819626135": 2846091,  "3.4616485680634552": 2895,  "0.6989700043360189": 5,  "1.3617278360175928": 23,  "5.299415766886762": 199258,  "3.5514499979728753": 3560,  "1.2304489213782739": 17,  "2.510545010206612": 324,  "2.2430380486862944": 175	};
 var queenPlacementsGraph = Morris.Line({
 	element: 'queenPlacements',
 	hideHover: 'auto',
@@ -365,7 +367,7 @@ var queenPlacementsGraph = Morris.Line({
 	resize: true,
 	parseTime: false,
 	lineColors: ['#A52A2A', '#72A0C1'],
-	yLabelFormat: function(y) { return y.toLocaleString(); },
+	yLabelFormat: function(y) { if( logData[y] ) { return logData[y].toLocaleString(); } else { if( 0 == y ) { return 0; } return "10^" + y;} },
 	xLabelFormat: function(obj) { return (obj.x + 1).toLocaleString(); },
 });
 var methodCallsGraph = Morris.Line({
@@ -378,7 +380,7 @@ var methodCallsGraph = Morris.Line({
 	resize: true,
 	parseTime: false,
 	lineColors: ['#A52A2A', '#72A0C1'],
-	yLabelFormat: function(y) { return y.toLocaleString(); },
+	yLabelFormat: function(y) { if( logData[y] ) { return logData[y].toLocaleString(); } else { if( 0 == y ) { return 0; } return "10^" + y;} },
 	xLabelFormat: function(obj) { return (obj.x + 1).toLocaleString(); },
 });
 var squareReadsGraph = Morris.Line({
@@ -391,7 +393,7 @@ var squareReadsGraph = Morris.Line({
 	resize: true,
 	parseTime: false,
 	lineColors: ['#A52A2A', '#72A0C1'],
-	yLabelFormat: function(y) { return y.toLocaleString(); },
+	yLabelFormat: function(y) { if( logData[y] ) { return logData[y].toLocaleString(); } else { if( 0 == y ) { return 0; } return "10^" + y;} },
 	xLabelFormat: function(obj) { return (obj.x + 1).toLocaleString(); },
 });
 var explicitTestsGraph = Morris.Line({
@@ -404,7 +406,7 @@ var explicitTestsGraph = Morris.Line({
 	resize: true,
 	parseTime: false,
 	lineColors: ['#A52A2A', '#72A0C1'],
-	yLabelFormat: function(y) { return y.toLocaleString(); },
+	yLabelFormat: function(y) { if( logData[y] ) { return logData[y].toLocaleString(); } else { if( 0 == y ) { return 0; } return "10^" + y;} },
 	xLabelFormat: function(obj) { return (obj.x + 1).toLocaleString(); },
 });
 var implicitTestsGraph = Morris.Line({
@@ -417,7 +419,7 @@ var implicitTestsGraph = Morris.Line({
 	resize: true,
 	parseTime: false,
 	lineColors: ['#A52A2A', '#72A0C1'],
-	yLabelFormat: function(y) { return y.toLocaleString(); },
+	yLabelFormat: function(y) { if( logData[y] ) { return logData[y].toLocaleString(); } else { if( 0 == y ) { return 0; } return "10^" + y;} },
 	xLabelFormat: function(obj) { return (obj.x + 1).toLocaleString(); },
 });
 
