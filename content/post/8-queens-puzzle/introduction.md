@@ -73,7 +73,7 @@ Known number of solutions for N from 1 to 26 are:
 
 Source: sequence [A000170](http://oeis.org/A000170) on [OEIS](http://oeis.org/).
 
-On a classic chessboard there is 92 distinct solutionsn and this chessboard is one solution:
+On a classic chessboard there is 92 distinct solutions and this chessboard is one of them:
 
 <div id="solutionBoard" style="width: 400px"></div>
 
@@ -107,7 +107,7 @@ Java is my main programming language and is very popular.
 Because of the Java runtime machine (JVM) overhead, Java programs can be slower than assembler/compiled languages(C, C++, Go, ...) programs for CPU-bound programs.
 
 **But a fast Java program is faster than a slow assembler/C program because of algorithm optimisations.**
-Nevertheless a same algortihm implemented in Java and in a optimized compiled language should be executed a faster by the compiled language program in most cases.
+Nevertheless the same algorithm implemented in Java and in an optimized compiled language(example: C) should be executed faster by the compiled language program in most cases.
 
 ### Benchmarks
 
