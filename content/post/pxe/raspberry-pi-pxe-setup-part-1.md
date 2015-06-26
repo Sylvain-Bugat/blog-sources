@@ -10,11 +10,24 @@ title = "PXE setep on Rapberry PI part 1"
 
 ## Raspberry PI PXE setup
 
+### Install and setup DHCPD
+
+sudo vi /etc/dhcp/dhcpd.conf
+
+sudo /etc/init.d/isc-dhcp-server restart
+
 ### Install and setup TFTP
+
+sudo vi /etc/default/tftpd-hpa
+
+sudo apt-get install tftp-hpa
 
 
 ### Install and setup PXE
 
+sudo apt-get install pxe
+
+sudo /etc/init.d/pxe restart
 
 ## Next step?
 
