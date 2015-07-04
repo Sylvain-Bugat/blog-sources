@@ -15,6 +15,8 @@ draft = true
 
 sudo vi /etc/dhcp/dhcpd.conf
 
+set DHCP network
+
 sudo /etc/init.d/isc-dhcp-server restart
 
 ### Install and setup TFTP
@@ -22,6 +24,8 @@ sudo /etc/init.d/isc-dhcp-server restart
 sudo apt-get install tftp-hpa
 
 sudo vi /etc/default/tftpd-hpa
+
+set TFTP main directory
 
 ### Install and setup PXE
 
