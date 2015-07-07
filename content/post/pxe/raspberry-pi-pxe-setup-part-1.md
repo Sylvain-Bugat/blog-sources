@@ -21,11 +21,14 @@ sudo /etc/init.d/isc-dhcp-server restart
 
 ### Install and setup TFTP
 
+Install the TFTP(Trivial FTP) server with this command:
 sudo apt-get install tftp-hpa
+
 
 sudo vi /etc/default/tftpd-hpa
 
-set TFTP main directory
+set TFTP main directory to /srv/tftp:
+TFTP_DIRECTORY="/srv/tftp"
 
 ### Install and setup PXE
 
